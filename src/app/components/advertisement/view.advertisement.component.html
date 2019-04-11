@@ -26,10 +26,8 @@
                 <thead>
                   <tr class="no-b" style="background-color: #c4e9ffa1; color: grey">
                     <th style="font-size: 15px; font-weight: bold; min-width: 95px">ID</th>
-                    <th style="font-size: 15px; font-weight: bold; min-width: 95px">GROUP</th>
                     <th style="font-size: 15px; font-weight: bold">NAME</th>
-                    <th style="font-size: 15px; font-weight: bold; min-width: 113px">START DATE</th>
-                    <th style="font-size: 15px; font-weight: bold; min-width: 113px">END DATE</th>
+                    <th style="font-size: 15px; font-weight: bold; min-width: 113px">DATE</th>
                     <th style="font-size: 15px; font-weight: bold">TYPE</th>
                     <th style="font-size: 15px; font-weight: bold">ACTIVE</th>
                     <th style="font-size: 15px; font-weight: bold"></th>
@@ -38,15 +36,17 @@
                 <tbody>
                   <tr *ngFor="let data of datas">
                     <td>{{data.id}}</td>
-                    <td>{{data.group.name}}</td>
                     <td>
                       <div>
                         <div><b>{{data.name}}</b></div>
+                        <div><small class="text-black-50">Code </small></div>
                         <div>{{data.code}}</div>
                       </div>
                     </td>
-                    <td>{{data._start}}</td>
-                    <td>{{data._end}}</td>
+                    <td>
+                      <div><small class="text-black-50">Start </small> <br> <b>{{dateFormat(data._start)}}</b></div>
+                      <div><small class="text-black-50">End </small> <br> <b>{{dateFormat(data._end)}}</b></div>
+                    </td>
                     <td>{{data.type == "01" ? 'cpm' : data.type == "02" ? 'cpc' : data.type == "03" ? 'cpv' : data.type == "04" ? 'cpa' : data.type == "05" ? 'cpo' : ''}}</td>
                     <td>
                       <div style="color: #008000a3; font-family: 'Lato', sans-serif; font-size: 25px" [hidden]="data.isActive == 0" >

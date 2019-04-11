@@ -3,6 +3,7 @@ import {AdvertisementService} from '../../service/advertisement.service';
 import {AdvertisementInterface} from '../../interface/advertisement.interface';
 import {FormControl} from '@angular/forms';
 import {debounceTime, filter, map} from 'rxjs/operators';
+import * as moment from 'moment';
 
 @Component({
   templateUrl: './view.advertisement.component.html'
@@ -67,5 +68,10 @@ export class ViewAdvertisementComponent {
             this.dataPage = key.data;
           });
     }
+  }
+
+  dateFormat(date) {
+    if(date == null) return null;
+    else return moment(date).format('dddd, DD MMMM YYYY, HH:mm');
   }
 }
