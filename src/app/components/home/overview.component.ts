@@ -3,6 +3,7 @@ import {ChartService} from '../../service/chart.service';
 import {takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import * as moment from 'moment';
+import {ExcelService} from '../../service/excel.service';
 
 @Component({
   selector : 'cs-overview',
@@ -43,17 +44,18 @@ export class OverviewComponent {
   public maxDate = moment(new Date()).add(-1, 'days').format('YYYY-MM-DD');
 
   public dataProfile = [] as any;
-  public account_id : string;
+  public group_id : string;
 
   constructor(
-    private service: ChartService
+    private service: ChartService,
+    private excelService: ExcelService
   ){}
 
 
   ngOnInit(){
     this.dataSet.time = 'week';
     this.dataSet.action = ['impression'];
-    this.dataSet.components = ['account_id'];
+    this.dataSet.components = ['group_id'];
 
     //set tanggal Default 1 bulan
     var startDateD = moment(new Date()).add(-1, 'month').format('YYYY-MM-DD');
@@ -72,8 +74,8 @@ export class OverviewComponent {
       .subscribe(
       res => {
         this.dataProfile = res.data;
-        this.account_id = res.data.id;
-        this.dataSet.component_values = [this.account_id.toString()];
+        this.group_id = res.data.group_id;
+        this.dataSet.component_values = [this.group_id.toString()];
 
         //LINE CHART
         this.service.getData(this.dataSet.time, this.dataSet)
@@ -140,8 +142,8 @@ export class OverviewComponent {
       .subscribe(
         res => {
           this.dataProfile = res.data;
-          this.account_id = res.data.id;
-          this.dataSet.component_values = [this.account_id.toString()];
+          this.group_id = res.data.id;
+          this.dataSet.component_values = [this.group_id.toString()];
           let coba1 = res.data.id;
           coba = coba1;
           // console.log(coba1);
@@ -341,8 +343,8 @@ export class OverviewComponent {
       .subscribe(
         res => {
           this.dataProfile = res.data;
-          this.account_id = res.data.id;
-          this.dataSet.component_values = [this.account_id.toString()];
+          this.group_id = res.data.id;
+          this.dataSet.component_values = [this.group_id.toString()];
 
           //GET DATA LINE CHART
           this.service.getData(this.dataSet.time, this.dataSet)
@@ -507,5 +509,21 @@ export class OverviewComponent {
 
   render(){
     this.renderChart();
+  }
+
+  doExportExcelData() {
+    const excelData: any = [];
+    this.datas.forEach(item => {
+      excelData.push({
+        Date: this.convertDate(item),
+        Imperssion: this.convert(item._impression),
+        'Click': this.convert(item._click),
+        'CTR': this.percentClick(item) + '%',
+        'View': this.convert(item._view),
+        'VTR': this.percentView(item) + '%',
+        'Action': this.convert(item._action),
+        'ATR': this.percentAction(item) + '%'});
+    });
+    this.excelService.exportAsExcelFile(excelData, 'Report ' + moment().format('DD-MM-YYYY HH.mm.ss'));
   }
 }

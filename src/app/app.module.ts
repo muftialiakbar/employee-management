@@ -21,7 +21,7 @@ import {HttpModule} from '@angular/http';
 import {LogoutService} from './service/logout.service';
 import {AuthGuard} from './components/auth/auth.guard';
 import {ConfigService} from './service/config.service';
-import {ProfileComponent} from './components/profile.component';
+import {ProfileComponent} from './components/profile/profile.component';
 import {GetProfileService} from './service/getProfile.service';
 import {BsNgxPaginationModule} from 'bs-ngx-pagination';
 import {GroupService} from './service/group.service';
@@ -30,9 +30,7 @@ import {CategoryService} from './service/category.service';
 import {CATEGORY_COMPONENT} from './components/category';
 import {ADVERTISEMENT_COMPONENT} from './components/advertisement';
 import {AdvertisementImageService} from './service/advertisement.image.service';
-import {ADVERTISEMENET_IMAGE_COMPOENENT} from './components/advertisement/image';
 import {AdvertisementService} from './service/advertisement.service';
-import {ADVERTISEMENT_VIDEO_COMPONENT} from './components/advertisement/video';
 import {AdvertisementVideoService} from './service/advertisement.video.service';
 import {ImageSizeService} from './service/image.size.service';
 import {IMAGE_SIZE_COMPONENT} from './components/image size';
@@ -45,7 +43,7 @@ import {OwlMomentDateTimeModule} from 'ng-pick-datetime/date-time/adapter/moment
 import {OwlDateTimeModule} from 'ng-pick-datetime';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TelkomapsService} from './service/telkomaps.service';
-import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, MatSelectModule} from '@angular/material';
+import {MatFormFieldModule, MatInputModule, MatSelectModule} from '@angular/material';
 import {NgxMatSelectSearchModule} from 'ngx-mat-select-search';
 import {BsNgxHouratdayPickerModule} from 'bs-ngx-houratday-picker';
 import {TCX} from 'verzth-tcx-js-angular/tcx-ng';
@@ -56,6 +54,9 @@ import {BarchartComponent} from './components/chart/barchart.component';
 import {PieChartComponent} from './components/chart/piechart.component';
 import {GROUP_COMPONENT} from './components/group';
 import {GROUP_ACCOUNT_COMPONENT} from './components/group/group-account';
+import {ExcelService} from './service/excel.service';
+import {ProfileChangeComponent} from './components/profile/profile.change.component';
+import {ChangePasswordComponent} from './components/profile/change-password.component';
 
 
 @NgModule({
@@ -71,10 +72,10 @@ import {GROUP_ACCOUNT_COMPONENT} from './components/group/group-account';
     StatsComponent,
     SimpleTableComponent,
     ProfileComponent,
+    ProfileChangeComponent,
+    ChangePasswordComponent,
     CATEGORY_COMPONENT,
     ADVERTISEMENT_COMPONENT,
-    ADVERTISEMENET_IMAGE_COMPOENENT,
-    ADVERTISEMENT_VIDEO_COMPONENT,
     IMAGE_SIZE_COMPONENT,
     VIDEO_SIZE_COMPONENT,
     // TELKOMAPS_COMPONENT,
@@ -124,7 +125,8 @@ import {GROUP_ACCOUNT_COMPONENT} from './components/group/group-account';
     VideoSizeService,
     TelkomapsService,
     TCX,
-    ChartService
+    ChartService,
+    ExcelService,
   ],
   bootstrap: [AppComponent]
 })

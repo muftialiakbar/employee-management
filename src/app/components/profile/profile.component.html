@@ -4,21 +4,19 @@
   </div>
   <div class="card-body">
     <div>
-      <!--<div class="row">
-        <div class="col-sm-2">
-          <img src="https://addons.thunderbird.net/static//img/zamboni/anon_user.png" style="border-radius: 100%; max-width: 125px; margin: 10px">
-        </div>
-        <div class="col-sm-6">
-          <b style="font-size: 25px; text-transform: capitalize">{{datas1.username}}</b><br/>
-          <div style="color: #00b0ff; display: inline-block">{{datas1.email}}</div> - Administrator
-        </div>
-      </div>-->
       <div>
         <div style="text-align: center">
           <img src="https://addons.thunderbird.net/static//img/zamboni/anon_user.png" style="border-radius: 100%; max-width: 156px; margin: 10px">
         </div>
-        <div style="font-family: Impact; font-size: 25px">
-          Account
+        <div class="row">
+          <div class="col-6">
+            <div style="font-family: Impact; font-size: 25px">
+              Account
+            </div>
+          </div>
+          <div class="col-6">
+            <button class="btn btn-default" routerLink="change"> Change Profile</button>
+          </div>
         </div>
         <div>
           <b style="font-size: 25px; text-transform: capitalize">{{datas.username}}</b><br/>

@@ -17,11 +17,6 @@ export class HeaderComponent implements OnInit {
         class : 'icon icon-home blue-text s-18',
       },
       {
-        name: 'GROUP',
-        link: 'group',
-        class: 'icon icon-users blue-text s-18'
-      },
-      {
         name: 'ADVERTISEMENT',
         link: 'advertisement',
         class: 'icon icon-buysellads blue-text s-18'

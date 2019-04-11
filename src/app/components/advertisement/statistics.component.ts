@@ -1,9 +1,11 @@
 import {Component} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {Subject} from 'rxjs';
 import {ChartService} from '../../service/chart.service';
 import * as moment from 'moment';
 import {takeUntil} from 'rxjs/operators';
+import {ExcelService} from '../../service/excel.service';
+import {AdvertisementService} from '../../service/advertisement.service';
 
 @Component({
   templateUrl :'./statistics.component.html'
@@ -45,8 +47,11 @@ export class StatisticsComponent {
   public dataProfile = [] as any;
   public account_id : string;
 
+  private nameAdvertisement: string;
   constructor(
     private service: ChartService,
+    private excelService: ExcelService,
+    private advertisementService: AdvertisementService,
     private activatedRoute: ActivatedRoute
   ){}
 
@@ -137,6 +142,10 @@ export class StatisticsComponent {
             });
           }
         );
+
+    this.advertisementService.getDataID(this.id).subscribe(res => {
+      this.nameAdvertisement = res.data.name;
+    });
   }
 
 
@@ -470,5 +479,21 @@ export class StatisticsComponent {
 
   render(){
     this.renderChart();
+  }
+
+  doExportExcelData() {
+    const excelData: any = [];
+    this.datas.forEach(item => {
+      excelData.push({
+        Date: this.convertDate(item),
+        Imperssion: this.convert(item._impression),
+        'Click': this.convert(item._click),
+        'CTR': this.percentClick(item) + '%',
+        'View': this.convert(item._view),
+        'VTR': this.percentView(item) + '%',
+        'Action': this.convert(item._action),
+        'ATR': this.percentAction(item) + '%'});
+    });
+    this.excelService.exportAsExcelFile(excelData, 'Report ' + this.nameAdvertisement + ' ' + moment().format('DD-MM-YYYY HH.mm.ss'));
   }
 }

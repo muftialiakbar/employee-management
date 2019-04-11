@@ -20,4 +20,16 @@ export class GetProfileService {
       {}
     );
   }
+
+  changeProfile(value): Observable<ResponseInterface<ProfileInterface[]>> {
+    // noinspection JSAnnotator
+    return this.httpClient.post<ResponseInterface<ProfileInterface[]>>(
+      this.Config.url.api + 'backend/change/profile/group',
+      value
+    );
+  }
+
+  changePassword(value): Observable<ResponseInterface<any>> {
+    return this.httpClient.post<ResponseInterface<any>>(this.Config.url.api + "backend/change/password/group",value);
+  }
 }

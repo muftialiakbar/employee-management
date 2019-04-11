@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {GetProfileService} from '../service/getProfile.service';
+import {GetProfileService} from '../../service/getProfile.service';
 
 @Component({
   selector : 'p-profile',

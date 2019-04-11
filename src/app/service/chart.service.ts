@@ -3,7 +3,6 @@ import {HttpClient} from '@angular/common/http';
 import {ConfigService} from './config.service';
 import {Observable} from 'rxjs';
 import {ResponseInterface} from '../interface/response.interface';
-import {ProfileInterface} from '../interface/profile.interface';
 
 @Injectable()
 export class ChartService {
@@ -13,12 +12,6 @@ export class ChartService {
   ){}
 
   getData(time,event): Observable<ResponseInterface<any>> {
-    return this.http.post<ResponseInterface<any>>(
-      this.configService.url.chart+ time,event, {headers : {HeaderChart: ''}}
-    )
-  }
-
-  getDataBar(time,event): Observable<ResponseInterface<any>> {
     return this.http.post<ResponseInterface<any>>(
       this.configService.url.chart+ time,event, {headers : {HeaderChart: ''}}
     )
@@ -38,7 +31,7 @@ export class ChartService {
 
   getProfile(): Observable<ResponseInterface<any>> {
     return this.http.get<ResponseInterface<any>>(
-      this.configService.url.api + 'backend/profile/account',
+      this.configService.url.api + 'backend/profile/group',
       {}
     );
   }
