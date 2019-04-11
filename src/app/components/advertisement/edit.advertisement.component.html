@@ -1,0 +1,270 @@
+<div class="container-fluid animatedParent animateOnce">
+  <div class="tab-content my-3" id="v-pills-tabContent">
+    <nav aria-label="breadcrumb" style="margin-bottom: 35px;">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item" [routerLink]="['/dashboard/advertisement']" style="cursor: pointer">Advertisement</li>
+        <li class="breadcrumb-item">Edit</li>
+      </ol>
+    </nav>
+    <div class="card shadow-lg"   style="max-width: 897px; margin: 0 auto">
+      <div class="card-header" style="text-align: center; background-color: #d2edff;">
+        <b>EDIT ADVERTISEMENT</b>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" [routerLink]="['/dashboard/advertisement']" >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="card-body">
+        <form action="#" (submit)="edit($event)">
+         <!-- <div class="form-group">
+            <label>*Account</label><br/>
+            <mat-form-field  appearance="outline" style="display: unset">
+              <mat-select id="inputStates3" name="account_id" [(ngModel)]="editList.account_id"  (ngModelChange)="getDataGroupDefault($event)">
+                <ngx-mat-select-search [formControl]="searchAccount"  (keyup)="getAccount(searchAccount)" placeholderLabel="Search"></ngx-mat-select-search>
+                <mat-option disabled style="background-color: #d2edff;">
+                  Pilih Account
+                </mat-option>
+                <mat-option *ngFor="let data of dataAccount" [value]="data.id">
+                  {{data.username}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>-->
+
+          <!-- <div class="form-group">
+             <label for="inputStates4">*Group</label>
+             <select id="inputStates4" class="form-control" name="image_size_id" [(ngModel)]="editList.group_id" required>
+               <option *ngFor="let data of dataGroup" [value]="data.id">{{data.name}}</option>
+             </select>
+           </div>-->
+
+          <div class="form-group">
+            <label>*Group</label><br/>
+            <mat-form-field appearance="outline" style="display: unset">
+              <mat-select id="inputState4" name="group_id" [(ngModel)]="editList.group_id">
+                <ngx-mat-select-search [formControl]="searchGroup" (keyup)="getGroup(searchGroup)" placeholderLabel="Search"></ngx-mat-select-search>
+                <mat-option disabled style="background-color: #d2edff;">
+                  Pilih Group
+                </mat-option>
+                <mat-option  *ngFor="let data of dataGroup" [value]="data.id">
+                  {{data.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+
+
+          <div class="form-group">
+            <label>*Name</label>
+            <input type="text" class="form-control" name="name" [(ngModel)]="editList.name" [ngClass]="{'is-invalid' : dataCheckName}" [ngModelOptions]="{updateOn: 'blur'}" (ngModelChange)="checkName('name', $event)">
+            <div style="color: #ff0000a1; font-family: 'Lato', sans-serif" *ngIf="dataCheckName">
+              <i class="icon icon-ban"></i> Data sudah ada
+            </div>
+          </div>
+          <div class="form-group">
+            <label>*Code</label>
+            <input type="text" class="form-control" name="code" [(ngModel)]="editList.code" [ngClass]="{'is-invalid' : dataCheckCode}" [ngModelOptions]="{updateOn: 'blur'}" (ngModelChange)="checkCode('code', $event)">
+            <div style="color: #ff0000a1; font-family: 'Lato', sans-serif" *ngIf="dataCheckCode">
+              <i class="icon icon-ban"></i> Data sudah ada
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputState2">*Type</label><br/>
+            <mat-form-field appearance="outline" style="display: unset">
+              <mat-select id="inputState2" name="type" [(ngModel)]="editList.type">
+                <mat-option value="01">CPM</mat-option>
+                <mat-option value="02">CPC</mat-option>
+                <mat-option value="03">CPV</mat-option>
+                <!--<mat-option value="04">CPA</mat-option>
+                <mat-option value="05">CPO</mat-option>-->
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Description</label>
+            <ckeditor [editor]="Editor" id="exampleFormControlTextarea1" name="description"  [(ngModel)]="editList.description"></ckeditor>
+          </div>
+         <!-- <div class="form-group">
+            <label for="inputState1">*Charging Type</label>
+            <select id="inputState1" class="form-control" name="charging_type" [(ngModel)]="editList.charging_type" required>
+              <option>target</option>
+              <option>budget</option>
+            </select>
+          </div>-->
+          <div class="form-group" [hidden]="editList.charging_type != 'target'">
+            <label>*Target</label>
+            <input type="number" class="form-control" name="target" [(ngModel)]="editList.target">
+          </div>
+          <div class="form-group">
+            <label>Priority</label>
+            <input type="number" class="form-control" name="priority" [(ngModel)]="editList.priority">
+          </div>
+          <div class="form-group" [hidden]="editList.charging_type != 'budget'">
+            <label>*Budget</label>
+            <input type="number" class="form-control" name="budget" [(ngModel)]="editList.budget">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label class="example-input-wrapper">*Start Date</label>
+              <input placeholder="Date Time From:" name="_start" class="form-control"
+                     [(ngModel)]="dataDateStart._start"
+                     [owlDateTimeTrigger]="dtRange2" [owlDateTime]="dtRange2">
+              <owl-date-time [pickerType]="'calendar'" #dtRange2></owl-date-time>
+            </div>
+            <div class="form-group col-md-4">
+              <label class="example-input-wrapper">*End Date</label>
+              <input placeholder="Date Time To:" name="_end" class="form-control"
+                     [(ngModel)]="dataDateEnd._end"
+                     [owlDateTimeTrigger]="dtRange3" [owlDateTime]="dtRange3">
+              <owl-date-time [pickerType]="'calendar'" #dtRange3></owl-date-time>
+            </div>
+          </div>
+
+          <!--<mat-form-field appearance="outline">
+            <mat-label>*Range Date</mat-label>
+            <input  matInput placeholder="Date Time Range:" name="range" class="form-control"
+                    [style.width]="'350px'"
+                    [(ngModel)]="dateTimeRange"
+                    (ngModelChange)="configRangeDate()"
+                    [selectMode]="'range'"
+                    [min]="minDate"
+                    [max]="maxDate"
+                    [owlDateTimeTrigger]="dtRange01" [owlDateTime]="dtRange01">
+            <owl-date-time [pickerType]="'calendar'" #dtRange01></owl-date-time>
+          </mat-form-field>-->
+
+         <!-- <div class="form-group">
+            <label>Featured</label>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" id="gridRadios7" name="isFeatured" checked  [(ngModel)]="editList.isFeatured" [value]="1">Yes
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" id="gridRadios8" name="isFeatured"   [(ngModel)]="editList.isFeatured" [value]="0">No
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputState">Gender</label>
+            <select id="inputState" class="form-control" name="gender" [(ngModel)]="editList.gender" required>
+              <option value="00">Male</option>
+              <option value="01">Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Age Start</label>
+            <input type="number" name="age_start" class="form-control" [(ngModel)]="editList.age_start" required />
+          </div>
+          <div class="form-group">
+            <label>Age End</label>
+            <input type="number" name="age_end" class="form-control" [(ngModel)]="editList.age_end" required />
+          </div>-->
+          <div class="form-group">
+            <label for="inputStateOS">OS</label><br/>
+            <mat-form-field appearance="outline" style="display: unset">
+              <mat-select multiple name="os" id="inputStateOS" [(ngModel)]="editList.os" placeholder="Pilih OS">
+                <mat-option value="Windows">Windows</mat-option>
+                <mat-option value="MacOS">MacOs</mat-option>
+                <mat-option value="Android">Android</mat-option>
+                <mat-option value="iOs">iOs</mat-option>
+                <mat-option value="Linux">Linux</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <label>Hours</label>
+          <bs-ngx-houratday-picker [(bsNgxHouratday)]="editList.hours" style="margin: 20px"></bs-ngx-houratday-picker>
+
+         <!-- <div class="form-group">
+            <label>Jaringan</label>
+            &lt;!&ndash;<div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" id="gridRadios1" name="isNational" checked  [(ngModel)]="editList.isNational" [value]="1">National
+              </label>
+            </div>&ndash;&gt;
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" id="gridRadios2" name="isNational" checked  [(ngModel)]="editList.isNational" [value]="0">Local
+              </label>
+            </div>
+          </div>-->
+          <div class="form-group">
+            <label for="inputStates">*Aps</label>
+            <mat-form-field appearance="outline" style="display: unset">
+              <mat-select multiple id="inputStates" name="aps"  [(ngModel)]="editList.aps">
+                <ngx-mat-select-search [formControl]="searchAps" placeholderLabel="Search"></ngx-mat-select-search>
+                <mat-option disabled>
+                  Choose
+                </mat-option>
+                <mat-option *ngFor="let data of dataAps" [value]="data.id" (onSelectionChange)="selectAps(data,$event)">
+                  {{data.ap_name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="form-group">
+            <label>Active</label>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" id="gridRadios5" name="isActive" checked  [(ngModel)]="editList.isActive" [value]="1">Yes
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" id="gridRadios6" name="isActive"   [(ngModel)]="editList.isActive" [value]="0">No
+              </label>
+            </div>
+          </div>
+         <!-- <div class="form-group" [hidden]="editList.isNational != 0">
+            <label for="inputStatek">*Kota</label><br/>
+            <mat-form-field appearance="outline" style="display: unset">
+              <mat-select multiple id="inputStatek" name="kota"  [(ngModel)]="editList.kotas">
+                <ngx-mat-select-search [formControl]="searchKota" placeholderLabel="Search"></ngx-mat-select-search>
+                <mat-option disabled style="background-color: #d2edff;">
+                  Pilih Kota
+                </mat-option>
+                <mat-option *ngFor="let data of dataKota" [value]="data">
+                      {{data}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="form-group" [hidden]="editList.isNational != 0">
+            <label for="inputStatew">*Witel</label><br/>
+            <mat-form-field appearance="outline" style="display: unset">
+              <mat-select multiple id="inputStatew" name="witel"  [(ngModel)]="editList.witels">
+                <ngx-mat-select-search [formControl]="searchWitel" placeholderLabel="Search"></ngx-mat-select-search>
+                <mat-option disabled style="background-color: #d2edff;">
+                  Pilih Witel
+                </mat-option>
+                <mat-option *ngFor="let data of dataWitel" [value]="data">
+                  {{data}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="form-group" [hidden]="editList.isNational != 0">
+            <label for="inputStateR">*Regional</label><br/>
+            <mat-form-field appearance="outline" style="display: unset">
+              <mat-select multiple id="inputStateR" name="regional"  [(ngModel)]="editList.regionals">
+                <mat-option *ngFor="let data of dataRegional" [value]="data">
+                  {{data}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>-->
+          <div style="float: right">
+            <button type="button" class="btn btn-info" style="color: white; margin-right: 4px" [routerLink]="['/dashboard/advertisement']" >Cancel</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer" style="    background-color: #d2edff;">
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="card" style="margin: 20px; max-width: 352px;">
+  <div class="card-header" style="text-align: center">
+    Profile
+  </div>
+  <div class="card-body">
+    <div>
+      <!--<div class="row">
+        <div class="col-sm-2">
+          <img src="https://addons.thunderbird.net/static//img/zamboni/anon_user.png" style="border-radius: 100%; max-width: 125px; margin: 10px">
+        </div>
+        <div class="col-sm-6">
+          <b style="font-size: 25px; text-transform: capitalize">{{datas1.username}}</b><br/>
+          <div style="color: #00b0ff; display: inline-block">{{datas1.email}}</div> - Administrator
+        </div>
+      </div>-->
+      <div>
+        <div style="text-align: center">
+          <img src="https://addons.thunderbird.net/static//img/zamboni/anon_user.png" style="border-radius: 100%; max-width: 156px; margin: 10px">
+        </div>
+        <div style="font-family: Impact; font-size: 25px">
+          Account
+        </div>
+        <div>
+          <b style="font-size: 25px; text-transform: capitalize">{{datas.username}}</b><br/>
+          <div style="color: #00b0ff; display: inline-block">{{datas.email}}</div> - Administrator
+        </div>
+      </div>
+    </div>
+    <div class="card" style="max-width: 327px;">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <i class="icon icon-user text-primary"></i>
+          <strong class="s-12">Username :</strong>
+          <span class="float-right s-12">{{datas.username}}</span>
+        </li>
+        <li class="list-group-item">
+          <i class="icon icon-envelope text-primary"></i>
+          <strong class="s-12">Email :</strong>
+          <span class="float-right s-12">{{datas.email}}</span>
+        </li>
+        <li class="list-group-item">
+          <i class="icon icon-phone text-primary"></i>
+          <strong class="s-12">Phone :</strong>
+          <span class="float-right s-12">{{datas.phone}}</span>
+        </li>
+        <li class="list-group-item"><i class="icon icon-list-alt text-primary"></i>
+          <strong class="s-12">Firstname :</strong>
+          <span class="float-right s-12">{{datas.firstname}}</span>
+        </li>
+        <li class="list-group-item"><i class="icon icon-list-alt text-primary"></i>
+          <strong class="s-12">Lastname :</strong>
+          <span class="float-right s-12">{{datas.lastname}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+

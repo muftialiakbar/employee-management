@@ -1,0 +1,23 @@
+export interface GroupAccountInterface {
+  'id': number,
+  'group_id': number,
+  'email': string,
+  'phone': string,
+  'isPhoneValid': boolean,
+  'firstname': string,
+  'lastname': string,
+  'gender': string,
+  'birthdate': any,
+  'birthplace': string,
+  'address': string,
+  'address_second': string,
+  'type': string,
+  'isActive': number,
+  'activated_at': string,
+  'isSuspend': number,
+  'suspended_at': string,
+  'created_at': string,
+  'updated_at': string,
+  'dataChecked': boolean,
+  'password': string
+}

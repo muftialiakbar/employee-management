@@ -1,0 +1,76 @@
+
+<div class="container-fluid animatedParent animateOnce">
+  <div class="tab-content my-3" id="v-pills-tabContent">
+    <nav aria-label="breadcrumb" style="margin-bottom: 35px;">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item" [routerLink]="['/dashboard/advertisement']" style="cursor: pointer">Advertisement</li>
+        <li class="breadcrumb-item" [routerLink]="['../../']" style="cursor: pointer">Video</li>
+        <li class="breadcrumb-item">Edit</li>
+      </ol>
+    </nav>
+    <div class="card shadow-lg"   style="max-width: 897px; margin: 0 auto">
+      <div class="card-header" style="text-align: center; background-color: #d2edff;">
+        <b>EDIT ADVERTISEMENT VIDEO</b>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" routerLink="../../">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="card-body">
+        <form action="#" (submit)="edit($event)">
+          <div class="form-group">
+            <label for="inputState1">*Video Size</label>
+            <select id="inputState1" class="form-control" name="image_size_id" [(ngModel)]="editList.video_size_id" required>
+              <option *ngFor="let data of dataSize" [value]="data.id">{{data.name}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlFile2">Image</label>
+            <input type='file'  class="form-control-file" id="exampleFormControlFile2" accept="image/x-png,image/gif,image/jpeg" (change)=processFile($event)><br/>
+            <div style="border: dashed 2px #80808082; min-height: 20px; padding: 20px; text-align: center">
+              <img [src]="urlImage" style="max-height: 157px;">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>*Link MP4</label>
+            <input type="text"  name="link_mp4"    class="form-control" [(ngModel)]="editList.link_mp4" required />
+          </div>
+          <div class="form-group">
+            <label>*Link Webm</label>
+            <input type="text"  name="link_ebm"    class="form-control" [(ngModel)]="editList.link_webm" required />
+          </div>
+          <div class="form-group">
+            <label>*Link OGV</label>
+            <input type="text"  name="link_ogv"  class="form-control" [(ngModel)]="editList.link_ogv" required />
+          </div>
+          <div class="form-group">
+            <label>Action</label>
+            <input type="text"  name="action"  class="form-control" [(ngModel)]="editList.action" required />
+          </div>
+          <!--<div class="form-group">
+            <label>Force</label>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" id="gridRadios5" name="isForce" checked  [(ngModel)]="editList.isForce" [value]="1">Yes
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" id="gridRadios6" name="isForce"   [(ngModel)]="editList.isForce" [value]="0">No
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Min</label>
+            <input type="number"  name="min"  maxlength="10"  class="form-control" [(ngModel)]="editList._min" required />
+          </div>-->
+          <div style="float: right">
+            <button type="button" class="btn btn-info" style="color: white; margin-right: 4px" routerLink="../../">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer" style="    background-color: #d2edff;">
+      </div>
+    </div>
+  </div>
+</div>

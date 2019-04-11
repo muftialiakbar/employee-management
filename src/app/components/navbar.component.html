@@ -1,0 +1,144 @@
+
+
+<div class="navbar-custom-menu p-t-10">
+  <ul class="nav navbar-nav">
+    <li class="dropdown custom-dropdown notifications-menu">
+      <!--<a href="#" class=" nav-link" data-toggle="dropdown" aria-expanded="false">
+        <i class="icon-notifications "></i>
+        <span class="badge badge-danger badge-mini rounded-circle">4</span>
+      </a>-->
+      <ul class="dropdown-menu">
+        <li class="header">You have 10 notifications</li>
+        <li>
+          <ul class="menu">
+            <li>
+              <a href="#">
+                <i class="icon icon-data_usage text-success"></i> 5 new members joined today
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="footer p-2 text-center"><a href="#">View all</a></li>
+      </ul>
+    </li>
+    <!-- <li>
+       <a class="nav-link ml-2" data-toggle="control-sidebar">
+         <i class="icon-tasks "></i>
+       </a>
+     </li>-->
+    <li class="dropdown custom-dropdown user user-menu">
+      <a href="#" class="nav-link" data-toggle="dropdown">
+        <img src="https://addons.thunderbird.net/static//img/zamboni/anon_user.png" class="user-image" alt="User Image" />
+        <i class="icon-more_vert "></i>
+      </a>
+      <div class="dropdown-menu p-4">
+        <!--        <div class="row box justify-content-between my-4">
+                  <div class="col">
+                    <a href="#">
+                      <i class="icon-apps purple lighten-2 avatar  r-5"></i>
+                      <div class="pt-1">Apps</div>
+                    </a>
+                  </div>
+                  <div class="col"><a href="#">
+                    <i class="icon-beach_access pink lighten-1 avatar  r-5"></i>
+                    <div class="pt-1">Profile</div>
+                  </a></div>
+                  <div class="col">
+                    <a href="#">
+                      <i class="icon-perm_data_setting indigo lighten-2 avatar  r-5"></i>
+                      <div class="pt-1">Settings</div>
+                    </a>
+                  </div>
+                </div>-->
+        <!--    <div class="row box justify-content-between my-4">
+              <div class="col">
+                <a href="#">
+                  <i class="icon-star light-green lighten-1 avatar  r-5"></i>
+                  <div class="pt-1">Favourites</div>
+                </a>
+              </div>
+              <div class="col">
+                <a href="#">
+                  <i class="icon-save2 orange accent-1 avatar  r-5"></i>
+                  <div class="pt-1">Saved</div>
+                </a>
+              </div>
+              <div class="col">
+                <a href="#">
+                  <i class="icon-perm_data_setting grey darken-3 avatar  r-5"></i>
+                  <div class="pt-1">Settings</div>
+                </a>
+              </div>
+            </div>
+            <hr />-->
+        <div class="row box justify-content-between my-4">
+          <!-- <div class="col">
+             <a href="#">
+               <i class="icon-apps purple lighten-2 avatar  r-5"></i>
+               <div class="pt-1">Apps</div>
+             </a>
+           </div>-->
+          <div class="col"><a routerLink="/dashboard/profile">
+            <i class="icon-user-circle indigo lighten-2 avatar  r-5"></i>
+            <div class="pt-1">Profile</div>
+          </a></div>
+          <div class="col" data-toggle="modal" data-target="#modalLogout" >
+            <a>
+              <i class="icon-arrow-circle-right indigo lighten-2 avatar  r-5"></i>
+              <div class="pt-1">LOGOUT</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+<!--MODAL-->
+<!--<div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">LOGOUT</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h3>
+          Yakin ingin kluar???
+        </h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
+        <button type="button" class="btn btn-primary" (click)="logout()" data-dismiss="modal">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+
+
+<div class="modal fade" id="modalLogout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true" style="z-index: 10000">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel2">LOGOUT</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h3>
+          Yakin ingin kluar?
+        </h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
+        <button type="button" class="btn btn-primary" (click)="logout()" data-dismiss="modal">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,29 @@
+<aside class="main-sidebar fixed offcanvas shadow">
+  <section class="sidebar">
+    <div class="w-80px mt-3 mb-3 ml-3">
+      <!--<img src="assets/img/basic/logo.png" alt="" />-->
+      <h2>PUSHADS<br/><div style="font-size: 15px">GROUP</div></h2>
+    </div>
+    <cs-user name="Admin" image_photo="https://addons.thunderbird.net/static//img/zamboni/anon_user.png"></cs-user>
+    <ul class="sidebar-menu">
+      <ng-container *ngFor="let menu of menus">
+        <li class="treeview" *ngIf="menu.items" style="cursor: pointer;">
+          <a>
+            <i *ngIf="menu.prefix" [class]="menu.prefix"></i> <span> {{ menu.name }} </span> <i *ngIf="menu.suffix" [class]="menu.suffix"></i>
+          </a>
+          <ul class="treeview-menu" style="margin-left: 30px">
+            <li *ngFor="let item of menu.items">
+              <a *ngIf="item.link" [routerLink]="item.link"><i [class]="item.class"></i> {{ item.name }}</a>
+              <a *ngIf="item.href" [href]="item.href"><i [class]="item.class"></i> {{ item.name }}</a>
+            </li>
+          </ul>
+        </li>
+
+        <li *ngIf="!menu.items">
+          <a *ngIf="menu.link" [routerLink]="menu.link"><i [class]="menu.class"></i> {{ menu.name }}</a>
+          <a *ngIf="menu.href" [href]="menu.href"><i [class]="menu.class"></i> {{ menu.name }}</a>
+        </li>
+      </ng-container>
+    </ul>
+  </section>
+</aside>

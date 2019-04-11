@@ -1,0 +1,27 @@
+export interface ImageSizeInterface {
+  'id': number,
+  'name': string,
+  'alias': string,
+  'dataChecked': boolean,
+  'width': number,
+  'height': number,
+  'sort':number,
+
+
+  'username': string,
+  'email': string,
+  'phone': string,
+  'firstname': string,
+  'lastname': string,
+  'gender': string,
+  'birthdate': string,
+  'birthplace': string,
+  'address': string,
+  'isActive': string,
+  'isEmailValid': boolean,
+  'isPhoneValid': boolean,
+  'address_second': string,
+  'activated_at': string,
+  'isSuspend': boolean,
+  'suspended_at': string,
+}

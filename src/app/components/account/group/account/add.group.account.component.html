@@ -1,0 +1,112 @@
+<div class="container-fluid animatedParent animateOnce">
+  <div class="tab-content my-3" id="v-pills-tabContent">
+    <nav aria-label="breadcrumb" style="margin-bottom: 35px;">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item" [routerLink]="['/dashboard/account']" style="cursor: pointer">Account</li>
+        <li class="breadcrumb-item" [routerLink]="['/dashboard/account/',this.ppid,'group']" style="cursor: pointer">Group</li>
+        <li class="breadcrumb-item" [routerLink]="['../']" style="cursor: pointer">Group Account</li>
+        <li class="breadcrumb-item">Add</li>
+      </ol>
+    </nav>
+    <div class="card shadow-lg"   style="max-width: 897px; margin: 0 auto">
+      <div class="card-header" style="text-align: center; background-color: #d2edff;">
+        <b>ADD GROUP ACCOUNT</b>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" [routerLink]="['../']">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="card-body">
+        <form action="#" method="post" (submit)="add($event)">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>*Email</label>
+              <input type="email" minlength="4" maxlength="100"  name="email" class="form-control" [(ngModel)]="dataAdd.email" [ngClass]="{'is-invalid' : dataCheckEmail}" [ngModelOptions]="{updateOn: 'blur'}" (ngModelChange)="checkEmail('email',$event)" required />
+              <div style="color: #ff0000a1; font-family: 'Lato', sans-serif" *ngIf="dataCheckEmail">
+                <i class="icon icon-ban"></i> Data sudah ada
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <label>*Password</label>
+              <input type="password" minlength="4" maxlength="100"  name="password" class="form-control" [(ngModel)]="dataAdd.password" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>*Firstname</label>
+            <input type="text" minlength="1" maxlength="10"  name="code" class="form-control" [(ngModel)]="dataAdd.firstname" [ngClass]="{'is-invalid' : dataCheckName}" [ngModelOptions]="{updateOn: 'blur'}" (ngModelChange)="checkName('firstname',$event)" required />
+            <div style="color: #ff0000a1; font-family: 'Lato', sans-serif" *ngIf="dataCheckName">
+              <i class="icon icon-ban"></i> Data sudah ada
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Lastname</label>
+            <input type="text" minlength="1" maxlength="10"  name="code" class="form-control" [(ngModel)]="dataAdd.lastname" required />
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Addres</label>
+            <textarea class="form-control" name="address" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="dataAdd.address"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Addres Second</label>
+            <textarea class="form-control" id="exampleFormControlTextarea2" name="address_second" rows="3" [(ngModel)]="dataAdd.address_second"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="text" minlength="1" maxlength="20"  name="phone" class="form-control" [(ngModel)]="dataAdd.phone" required />
+          </div>
+          <div class="form-group">
+            <label for="inputState">Gender</label>
+            <select id="inputState" class="form-control" name="gender" [(ngModel)]="dataAdd.gender" required>
+              <option value= "00">Male</option>
+              <option value= "01">Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Date Of Birth</label>
+            <input placeholder="Birthdate" name="birthdate" class="form-control"
+                   [(ngModel)]="dataDate.birthdate"
+                   [owlDateTimeTrigger]="dtRange2" [owlDateTime]="dtRange2">
+            <owl-date-time [pickerType]="'calendar'" #dtRange2></owl-date-time>
+          </div>
+          <div class="form-group">
+            <label for="inputState2">Type</label>
+            <select id="inputState2" class="form-control" name="gender" [(ngModel)]="dataAdd.type" required>
+              <option value="00">Default</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Active</label>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" id="gridRadios" name="isActive" checked  [(ngModel)]="dataAdd.isActive" [value]="1">Yes
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" id="gridRadios2" name="isActive"   [(ngModel)]="dataAdd.isActive" [value]="0">No
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Suspend</label>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" id="gridRadios3" name="isSuspend" checked  [(ngModel)]="dataAdd.isSuspend" [value]="1">Yes
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" id="gridRadios4" name="isSuspend"   [(ngModel)]="dataAdd.isSuspend" [value]="0">No
+              </label>
+            </div>
+          </div>
+          <div style="float: right">
+            <button type="button" class="btn btn-info" style="color: white; margin-right: 4px" [routerLink]="['../']">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer" style="    background-color: #d2edff;">
+      </div>
+    </div>
+  </div>
+</div>

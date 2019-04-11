@@ -1,0 +1,71 @@
+<div class="container-fluid animatedParent animateOnce">
+  <div class="tab-content my-3" id="v-pills-tabContent">
+    <nav aria-label="breadcrumb" style="margin-bottom: 35px;">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item" [routerLink]="['../']" style="cursor: pointer">Image Size</li>
+        <li class="breadcrumb-item">Edit</li>
+      </ol>
+    </nav>
+
+    <div class="card shadow-lg"   style="max-width: 897px; margin: 0 auto">
+      <div class="card-header" style="text-align: center; background-color: #d2edff;">
+        <b>EDIT TELKOM APS</b>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" routerLink="../../">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="card-body">
+        <form action="#" (submit)="edit()">
+          <div class="form-row">
+            <label>*Location ID</label>
+            <input type="text" minlength="4" maxlength="30"  name="loc_id"  class="form-control" [ngClass]="{'is-invalid' : dataCheckLoc_id}" [(ngModel)]="editList.loc_id" [ngModelOptions]="{updateOn: 'blur'}" (ngModelChange)="checkLoc_id('loc_id',$event)" required/>
+            <div style="color: #ff0000a1; font-family: 'Lato', sans-serif" *ngIf="dataCheckLoc_id">
+              <i class="icon icon-ban"></i> Data sudah ada
+            </div>
+          </div>
+          <div class="form-group">
+            <label>*AP Name</label>
+            <input type="text" minlength="4" maxlength="100"  name="ap_name" class="form-control" [(ngModel)]="editList.ap_name" [ngClass]="{'is-invalid' : dataCheckAp_name}" [ngModelOptions]="{updateOn: 'blur'}" (ngModelChange)="checkAp_name('ap_name',$event)" required />
+            <div style="color: #ff0000a1; font-family: 'Lato', sans-serif" *ngIf="dataCheckAp_name">
+              <i class="icon icon-ban"></i> Data sudah ada
+            </div>
+          </div>
+          <div class="form-group">
+            <label>*MAC Address</label>
+            <input type="text"  name="mac_address" class="form-control" [(ngModel)]="editList.mac_address" required />
+          </div>
+          <div class="form-group">
+            <label>Site Name</label>
+            <input type="text" name="site_name" class="form-control" [(ngModel)]="editList.site_name" required />
+          </div>
+          <div class="form-group">
+            <label>Kota</label>
+            <input type="text"  name="kota" class="form-control" [(ngModel)]="editList.kota" required />
+          </div>
+          <div class="form-group">
+            <label>Witel</label>
+            <input type="text"  name="witel" class="form-control" [(ngModel)]="editList.witel" required />
+          </div>
+          <div class="form-group">
+            <label>Regional</label>
+            <input type="text"  name="regional" class="form-control" [(ngModel)]="editList.regional" required />
+          </div>
+          <div class="form-group">
+            <label>Latitude</label>
+            <input type="number"  name="lat" class="form-control" [(ngModel)]="editList.lat" required />
+          </div>
+          <div class="form-group">
+            <label>Longitude</label>
+            <input type="number"  name="lng" class="form-control" [(ngModel)]="editList.lng" required />
+          </div>
+          <div style="float: right">
+            <button type="button" class="btn btn-info" style="color: white; margin-right: 4px" routerLink="../../">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer" style="    background-color: #d2edff;">
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div>
+  <div>
+    <div style="display: block">
+      <canvas #mainChart="base-chart"
+              baseChart
+              [data]="pieChartData"
+              [labels]="pieChartLabels"
+              [chartType]="pieChartType"
+              [options]="pieChartOptions"
+              [legend]="pieChartLegend"
+              (chartClick)="chartClicked($event)">
+      </canvas>
+    </div>
+  </div>
+</div>
+<div>
+  <!--<button mat-button mat-raised-button color="primary" (click)="pieChartLegend=!pieChartLegend">Toggle Legend</button>-->
+  <!--<button mat-button mat-raised-button color="primary" (click)="changeLabels()">Change Labels</button>-->
+</div>

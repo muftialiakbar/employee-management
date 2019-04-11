@@ -1,0 +1,139 @@
+<div class="container-fluid animatedParent animateOnce my-3">
+  <div class="animated fadeInUpShort go">
+    <div class="row my-3">
+      <div class="col-12">
+        <div class="row" style="margin: 10px;">
+          <div class="col-md-2" style="margin: 10px; border: solid #80808030 1px; border-radius: 10px; padding: 10px; background-color: white; cursor: pointer" (click)="dataSet.action = ['impression']; renderChart()">
+            <div style="font-size: 25px"><b>{{convert(impressionMerge)}}</b></div>
+            <hr/>
+            Impression <i class="icon icon-line-chart" style="float: right"></i>
+          </div>
+          <div class="col-md-2" style="margin: 10px; border: solid #80808030 1px; border-radius: 10px; padding: 10px; background-color: white; cursor: pointer" (click)="dataSet.action = ['click']; renderChart()">
+            <div style="font-size: 25px"><b>{{convert(clickMerge)}}</b></div>
+            <hr/>
+            Click/CTR {{renderMerge(clickMerge)}}% <i class="icon icon-line-chart" style="float: right"></i>
+          </div>
+          <div class="col-md-2" style="margin: 10px; border: solid #80808030 1px; border-radius: 10px; padding: 10px; background-color: white; cursor: pointer" (click)="dataSet.action = ['view']; renderChart()">
+            <div style="font-size: 25px"><b>{{convert(viewMerge)}}</b></div>
+            <hr/>
+            View/VTR {{renderMerge(viewMerge)}}% <i class="icon icon-line-chart" style="float: right"></i>
+          </div>
+          <div class="col-md-2" style="margin: 10px; border: solid #80808030 1px; border-radius: 10px; padding: 10px; background-color: white; cursor: pointer" (click)="dataSet.action = ['action']; renderChart()">
+            <div style="font-size: 25px"><b>{{convert(actionMerge)}}</b></div>
+            <hr/>
+            Action/ATR {{renderMerge(actionMerge)}}% <i class="icon icon-line-chart" style="float: right"></i>
+          </div>
+          <div class="col-md-2" style="margin: 10px; border: solid #80808030 1px; border-radius: 10px; padding: 10px; background-color: white; cursor: pointer" (click)="dataSet.action = ['order']; renderChart()">
+            <div style="font-size: 25px"><b>{{convert(orderMerge)}}</b></div>
+            <hr/>
+            Order/OTR {{renderMerge(orderMerge)}}% <i class="icon icon-line-chart" style="float: right"></i>
+          </div>
+          <div class="col-md-2" style="margin: 10px; border: solid #80808030 1px; border-radius: 10px; padding: 10px; background-color: white;">
+            <div style="font-size: 25px"><b>{{convert(sessionMerge)}}</b></div>
+            <hr/>
+            Session <i class="icon icon-line-chart" style="float: right"></i>
+          </div>
+          <div class="col-md-2" style="margin: 10px; border: solid #80808030 1px; border-radius: 10px; padding: 10px; background-color: white">
+            <div style="font-size: 25px"><b>{{convert(deviceMerge)}}</b></div>
+            <hr/>
+            Device <i class="icon icon-line-chart" style="float: right"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div style="border: solid #80808030 1px; padding: 20px; border-radius: 10px; margin: 20px; background-color: white">
+          <div style="font-size: 25px"><b>Content Statistics</b></div>
+          <hr/>
+          <div class="row" style="margin: 20px">
+            <div class="form-group" style="margin-right: 10px">
+              <mat-form-field appearance="outline" style="">
+                <mat-label>Time</mat-label>
+                <mat-select id="inputState3" name="time" [(ngModel)]="dataSet.time" (ngModelChange)="render()">
+                  <mat-option value="hourly" [disabled]="range >1 ">Hourly</mat-option>
+                  <mat-option value="daily" [disabled]="range >60">Daily</mat-option>
+                  <mat-option value="week" [disabled]="range >180">Week</mat-option>
+                  <mat-option value="month">Month</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="form-group" style="margin-right: 10px">
+              <mat-form-field appearance="outline" style="">
+                <mat-label>Action</mat-label>
+                <mat-select multiple id="inputState2" name="action" [(ngModel)]="dataSet.action" [ngModelOptions]="{updateOn: 'blur'}" (ngModelChange)="renderChart()">
+                  <mat-option value="impression">Impression</mat-option>
+                  <mat-option value="click">Click</mat-option>
+                  <mat-option value="view">View</mat-option>
+                  <mat-option value="action">Action</mat-option>
+                  <mat-option value="order">Order</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group" style="margin-right: 10px">
+              <mat-form-field appearance="outline" style="">
+                <mat-label>Custom</mat-label>
+                <mat-select id="inputState4" name="range" [(ngModel)]="setDay" (ngModelChange)="configDay()">
+                  <mat-option value="2days">2 Days</mat-option>
+                  <mat-option value="7days">7 Days</mat-option>
+                  <mat-option value="1month">1 Month</mat-option>
+                  <mat-option value="3month">3 Month</mat-option>
+                  <mat-option value="6month">6 Month</mat-option>
+                  <mat-option value="1year">1 year</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <!--RANGE-->
+            <mat-form-field appearance="outline">
+              <mat-label>Range Date</mat-label>
+              <input  matInput placeholder="Date Time Range:" name="range"
+                     [style.width]="'350px'"
+                     [(ngModel)]="dateTimeRange"
+                     (ngModelChange)="configRangeDate()"
+                     [selectMode]="'range'"
+                      [min]="minDate"
+                      [max]="maxDate"
+                     [owlDateTimeTrigger]="dtRange01" [owlDateTime]="dtRange01">
+              <owl-date-time [pickerType]="'calendar'" #dtRange01></owl-date-time>
+            </mat-form-field>
+          </div>
+          <div *ngIf="lineChartData.length >=1 ">
+            <cs-chart [data]="lineChartData" [title]="dataSet.action" [label]="lineChartLabels"></cs-chart>
+          </div>
+        </div>
+        <div style="border: solid #80808030 1px; padding: 20px; border-radius: 10px; margin: 20px; background-color: white">
+          <div style="font-size: 25px"><b>Data</b></div>
+          <hr/>
+          <div class="card r-0 shadow">
+            <div class="table-responsive">
+              <table class="table table-striped table-hover r-0">
+                <thead>
+                  <tr class="no-b" style="background-color: #2196f3; color: white">
+                    <th style="font-size: 15px; font-weight: bold">Date</th>
+                    <th style="font-size: 15px; font-weight: bold">Impression</th>
+                    <th style="font-size: 15px; font-weight: bold">Click/CTR</th>
+                    <th style="font-size: 15px; font-weight: bold">View/VTR</th>
+                    <th style="font-size: 15px; font-weight: bold">Action/ATR</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of datas">
+                    <td>{{convertDate(data)}}</td>
+                    <td>{{convert(data._impression)}}</td>
+                    <td>{{convert(data._click)}}/{{percentClick(data)}}%</td>
+                    <td>{{convert(data._view)}}/{{percentView(data)}}%</td>
+                    <td>{{convert(data._action)}}/{{percentAction(data)}}%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
