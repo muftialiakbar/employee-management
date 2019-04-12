@@ -45,7 +45,7 @@ export class StatisticsComponent {
   public maxDate = moment(new Date()).add(-1, 'days').format('YYYY-MM-DD');
 
   public dataProfile = [] as any;
-  public account_id : string;
+  public group_id : string;
 
   private nameAdvertisement: string;
   constructor(
@@ -64,7 +64,7 @@ export class StatisticsComponent {
     this.dataSet.id = this.id;
     this.dataSet.time = 'week';
     this.dataSet.action = ['impression'];
-    this.dataSet.components = ['account_id'];
+    this.dataSet.components = ['group_id'];
 
     //set tanggal Default
     var startDateD = moment(new Date()).add(-1, 'month').format('YYYY-MM-DD');
@@ -83,8 +83,8 @@ export class StatisticsComponent {
       .subscribe(
         res => {
           this.dataProfile = res.data;
-          this.account_id = res.data.id;
-          this.dataSet.component_values = [this.account_id.toString()];
+          this.group_id = res.data.group_id;
+          this.dataSet.component_values = [this.group_id.toString()];
 
 
           //LINE CHART
@@ -338,8 +338,8 @@ export class StatisticsComponent {
       .subscribe(
         res => {
           this.dataProfile = res.data;
-          this.account_id = res.data.id;
-          this.dataSet.component_values = [this.account_id.toString()];
+          this.group_id = res.data.group_id;
+          this.dataSet.component_values = [this.group_id.toString()];
 
           //LINE CHART
           this.service.getData(this.dataSet.time, this.dataSet)
