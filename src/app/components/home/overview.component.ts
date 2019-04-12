@@ -343,7 +343,7 @@ export class OverviewComponent {
       .subscribe(
         res => {
           this.dataProfile = res.data;
-          this.group_id = res.data.id;
+          this.group_id = res.data.group_id;
           this.dataSet.component_values = [this.group_id.toString()];
 
           //GET DATA LINE CHART
