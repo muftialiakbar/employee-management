@@ -2,41 +2,48 @@
   <div class="animated fadeInUpShort go">
     <div class="row my-3">
       <div class="col-12">
-        <div class="row" style="margin: 10px;">
-          <div class="col-md-2" style="margin: 10px; border: solid #80808030 1px; border-radius: 10px; padding: 10px; background-color: white; cursor: pointer" (click)="dataSet.action = ['impression']; renderChart()">
-            <div style="font-size: 25px"><b>{{convert(impressionMerge)}}</b></div>
-            <hr/>
-            Impression <i class="icon icon-line-chart" style="float: right"></i>
+        <div class="row" style="/*margin: 10px;*/padding: 25px">
+          <div class="col-sm-3" style="/*margin: 10px;*/ padding: 10px;">
+            <div style=" border: solid #80808030 1px; border-radius: 10px; padding: 20px;   background-color: white; cursor: pointer" (click)="dataSet.action = ['impression']; renderChart()">
+              <div style="font-size: 25px"><b>{{convert(impressionMerge)}}</b></div>
+              <hr/>
+              Impression <i class="icon icon-line-chart" style="float: right"></i>
+            </div>
           </div>
-          <div class="col-md-2" style="margin: 10px; border: solid #80808030 1px; border-radius: 10px; padding: 10px; background-color: white; cursor: pointer" (click)="dataSet.action = ['click']; renderChart()">
-            <div style="font-size: 25px"><b>{{convert(clickMerge)}}</b></div>
-            <hr/>
-            Click/CTR {{renderMerge(clickMerge)}}% <i class="icon icon-line-chart" style="float: right"></i>
+          <div class="col-sm-3" style="/*margin: 10px;*/ border-radius: 10px; padding: 10px; ">
+            <div style=" border: solid #80808030 1px; border-radius: 10px; padding: 20px;  background-color: white; cursor: pointer" (click)="dataSet.action = ['click']; renderChart()">
+              <div style="font-size: 25px"><b>{{convert(clickMerge)}}</b></div>
+              <hr/>
+              Click/CTR {{renderMerge(clickMerge)}}% <i class="icon icon-line-chart" style="float: right"></i>
+            </div>
           </div>
-          <div class="col-md-2" style="margin: 10px; border: solid #80808030 1px; border-radius: 10px; padding: 10px; background-color: white; cursor: pointer" (click)="dataSet.action = ['view']; renderChart()">
-            <div style="font-size: 25px"><b>{{convert(viewMerge)}}</b></div>
-            <hr/>
-            View/VTR {{renderMerge(viewMerge)}}% <i class="icon icon-line-chart" style="float: right"></i>
+          <div class="col-sm-3" style="/*margin: 10px;*/ border-radius: 10px; padding: 10px; ">
+            <div style=" border: solid #80808030 1px; border-radius: 10px; padding: 20px;  background-color: white; cursor: pointer" (click)="dataSet.action = ['view']; renderChart()">
+              <div style="font-size: 25px"><b>{{convert(viewMerge)}}</b></div>
+              <hr/>
+              View/VTR {{renderMerge(viewMerge)}}% <i class="icon icon-line-chart" style="float: right"></i>
+            </div>
           </div>
-          <div class="col-md-2" style="margin: 10px; border: solid #80808030 1px; border-radius: 10px; padding: 10px; background-color: white; cursor: pointer" (click)="dataSet.action = ['action']; renderChart()">
-            <div style="font-size: 25px"><b>{{convert(actionMerge)}}</b></div>
-            <hr/>
-            Action/ATR {{renderMerge(actionMerge)}}% <i class="icon icon-line-chart" style="float: right"></i>
+          <div class="col-sm-3" style="/*margin: 10px;*/ border-radius: 10px; padding: 10px; ">
+            <div style=" border: solid #80808030 1px; border-radius: 10px; padding: 20px;  background-color: white; cursor: pointer" (click)="dataSet.action = ['action']; renderChart()">
+              <div style="font-size: 25px"><b>{{convert(actionMerge)}}</b></div>
+              <hr/>
+              Action/ATR {{renderMerge(actionMerge)}}% <i class="icon icon-line-chart" style="float: right"></i>
+            </div>
           </div>
-          <div class="col-md-2" style="margin: 10px; border: solid #80808030 1px; border-radius: 10px; padding: 10px; background-color: white; cursor: pointer" (click)="dataSet.action = ['order']; renderChart()">
-            <div style="font-size: 25px"><b>{{convert(orderMerge)}}</b></div>
-            <hr/>
-            Order/OTR {{renderMerge(orderMerge)}}% <i class="icon icon-line-chart" style="float: right"></i>
+          <div class="col-sm-3" style="/*margin: 10px;*/  border-radius: 10px; padding: 10px;">
+            <div style=" border: solid #80808030 1px; border-radius: 10px; padding: 20px; background-color: white;">
+              <div style="font-size: 25px"><b>{{convert(sessionMerge)}}</b></div>
+              <hr/>
+              Session <i class="icon icon-line-chart" style="float: right"></i>
+            </div>
           </div>
-          <div class="col-md-2" style="margin: 10px; border: solid #80808030 1px; border-radius: 10px; padding: 10px; background-color: white;">
-            <div style="font-size: 25px"><b>{{convert(sessionMerge)}}</b></div>
-            <hr/>
-            Session <i class="icon icon-line-chart" style="float: right"></i>
-          </div>
-          <div class="col-md-2" style="margin: 10px; border: solid #80808030 1px; border-radius: 10px; padding: 10px; background-color: white">
-            <div style="font-size: 25px"><b>{{convert(deviceMerge)}}</b></div>
-            <hr/>
-            Device <i class="icon icon-line-chart" style="float: right"></i>
+          <div class="col-sm-3" style="/*margin: 10px;*/ border-radius: 10px; padding: 10px;">
+            <div style=" border: solid #80808030 1px; border-radius: 10px; padding: 20px;   background-color: white">
+              <div style="font-size: 25px"><b>{{convert(deviceMerge)}}</b></div>
+              <hr/>
+              Device <i class="icon icon-line-chart" style="float: right"></i>
+            </div>
           </div>
         </div>
       </div>

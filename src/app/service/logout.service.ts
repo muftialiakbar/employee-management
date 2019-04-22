@@ -18,7 +18,7 @@ export class LogoutService {
 
   getlogout() {
     return this.httpClient.post<any>(
-      this.Config.url.api + 'backend/logout/account',
+      this.Config.url.api + 'backend/logout/group',
       {})
       .subscribe(res => {
           this.Cookies.delete('pushads_session','/');
