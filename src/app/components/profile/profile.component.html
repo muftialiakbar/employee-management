@@ -1,3 +1,4 @@
+<!--
 <div class="card" style="margin: 20px; max-width: 352px;">
   <div class="card-header" style="text-align: center">
     Profile
@@ -53,5 +54,94 @@
     </div>
   </div>
 </div>
+-->
+
+<div class="card" style="margin: 20px; max-width: 800px;">
+  <div class="card-header" style="text-align: center; font-family: Impact; font-size: 25px">
+    Profile
+  </div>
+  <div class="card-body">
+    <div>
+      <div>
+        <div style="text-align: center">
+          <img src="https://addons.thunderbird.net/static//img/zamboni/anon_user.png" style="border-radius: 100%; max-width: 156px; margin: 10px">
+        </div>
+        <div class="row" style="float: right">
+          <div style="margin: 10px; float: right">
+            <button class="btn btn-info" routerLink="change" style="color: white; margin-right: 5px"> Change Profile</button>
+          </div>
+        </div>
+        <div style="clear: both"></div>
+      </div>
+    </div>
+    <div class="card">
+      <!--<ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <i class="icon icon-user text-primary"></i>
+          <strong class="s-16">Username :</strong>
+          <span class=" s-16">{{datas.username}}</span>
+        </li>
+        <li class="list-group-item">
+          <i class="icon icon-envelope text-primary"></i>
+          <strong class="s-16">Email :</strong>
+          <span class=" s-16">{{datas.email}}</span>
+        </li>
+        <li class="list-group-item">
+          <i class="icon icon-phone text-primary"></i>
+          <strong class="s-16">Phone :</strong>
+          <span class=" s-16">{{datas.phone}}</span>
+        </li>
+        <li class="list-group-item"><i class="icon icon-list-alt text-primary"></i>
+          <strong class="s-16">Firstname :</strong>
+          <span class=" s-16">{{datas.firstname}}</span>
+        </li>
+        <li class="list-group-item"><i class="icon icon-list-alt text-primary"></i>
+          <strong class="s-16">Lastname :</strong>
+          <span class=" s-16">{{datas.lastname}}</span>
+        </li>
+      </ul>-->
+
+
+      <table class="table">
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<i class="icon icon-envelope text-primary" style="margin-right: 10px; font-size: 17px;"></i><b>Email</b></td>
+          <td class="custom-width-5">:</td>
+          <td>{{datas.email}}</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<i class="icon icon-phone text-primary" style="margin-right: 10px; font-size: 20px;"></i><b>Phone</b></td>
+          <td class="custom-width-5">:</td>
+          <td>{{datas.phone}}</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<i class="icon icon-address-book text-primary" style="margin-right: 10px; font-size: 20px;"></i><b>Firstname</b></td>
+          <td class="custom-width-5">:</td>
+          <td>{{datas.firstname}}</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<i class="icon icon-address-book text-primary" style="margin-right: 10px; font-size: 20px;"></i><b>Lastname</b></td>
+          <td class="custom-width-5">:</td>
+          <td>{{datas.lastname}}</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<i class="icon icon-map-marker text-primary" style="margin-right: 10px; font-size: 27px;"></i><b>Address</b></td>
+          <td class="custom-width-5">:</td>
+          <td>{{datas.address}}</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<i class="icon icon-birthday-cake text-primary" style="margin-right: 10px; font-size: 20px;"></i><b>Birthdate</b></td>
+          <td class="custom-width-5">:</td>
+          <td>{{datas.birthdate}}</td>
+        </tr>
+        <tr>
+          <td>&nbsp;&nbsp;&nbsp;<i class="icon icon-map-marker text-primary" style="margin-right: 10px; font-size: 27px;"></i><b>Birthplace</b></td>
+          <td class="custom-width-5">:</td>
+          <td>{{datas.birthplace}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
 
 

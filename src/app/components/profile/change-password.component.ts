@@ -26,4 +26,14 @@ export class ChangePasswordComponent implements OnInit{
 
   }
 
+  change() {
+    this.service.changePassword(this.changePassword).subscribe(res => {
+      if(res.status == 1) {
+        this.router.navigate(['dashboard'])
+      } else {
+        Swal('Warning!', 'Please check your form.', 'warning')
+      }
+    }, error1 => Swal('Server Error!', 'Please contact admin.', 'error'));
+
+  }
 }

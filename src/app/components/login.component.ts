@@ -39,6 +39,6 @@ constructor(
           'error'
         );
       }
-    });
+    }, error1 => Swal('Server Error!', 'Please contact admin.', 'error'));
   }
 }

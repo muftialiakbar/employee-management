@@ -1,3 +1,4 @@
+<!--
 <div class="container-fluid animatedParent animateOnce">
   <div class="animated fadeInUpShort go">
     <div class="row my-3">
@@ -69,6 +70,97 @@
           </form>
         </div>
 
+      </div>
+    </div>
+  </div>
+</div>
+-->
+
+
+<div class="container-fluid animatedParent animateOnce">
+  <div class="tab-content my-3" id="v-pills-tabContent">
+    <nav aria-label="breadcrumb" style="margin-bottom: 35px;">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item" [routerLink]="['../']" style="cursor: pointer">Profile</li>
+        <li class="breadcrumb-item">Change Profile</li>
+      </ol>
+    </nav>
+    <div class="card shadow-lg"   style="max-width: 897px; margin: 0 auto">
+      <div class="card-header" style="text-align: center; background-color: #d2edff;">
+        <b>Change Profile</b>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" [routerLink]="['../']">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="card-body">
+        <form action="#" method="post" (submit)="change($event)">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>*Old Password</label>
+              <input type="text" minlength="4" maxlength="30" [ngClass]="{'is-invalid' : profile.password_old == null}" name="password_old"  class="form-control" [(ngModel)]="profile.password_old" placeholder="Enter Old Password" required/>
+            </div>
+            <div class="form-group col-md-6">
+              <label>New Password</label>
+              <input type="email" minlength="4" maxlength="100"  name="password" class="form-control" [(ngModel)]="profile.password" placeholder="Enter New Password" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>*Email</label>
+            <input type="email" minlength="4" maxlength="100"  name="email" class="form-control" [(ngModel)]="profile.email" required />
+          </div>
+          <div class="form-group">
+            <label>Firstname</label>
+            <input type="text" minlength="1" maxlength="20"  name="firstname" class="form-control" [(ngModel)]="profile.firstname" required />
+          </div>
+          <div class="form-group">
+            <label>Lastname</label>
+            <input type="text" minlength="1" maxlength="20"  name="lastname" class="form-control" [(ngModel)]="profile.lastname" required />
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="text" minlength="1" maxlength="20"  name="phone" class="form-control" [(ngModel)]="profile.phone" required />
+          </div>
+
+          <div class="form-group">
+            <label class="example-input-wrapper">Date of Birth</label>
+            <input placeholder="" name="birthdate" class="form-control"
+                   [(ngModel)]="dataDate.birthdate"
+                   [owlDateTimeTrigger]="dtRange2" [owlDateTime]="dtRange2">
+            <owl-date-time [pickerType]="'calendar'" #dtRange2></owl-date-time>
+          </div>
+
+          <div class="form-group">
+            <label>Birthplace</label>
+            <input type="text" minlength="1" maxlength="20"  name="birthplace" class="form-control" [(ngModel)]="profile.birthplace" required />
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Addres</label>
+            <textarea class="form-control" name="address" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="profile.address"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Addres Second</label>
+            <textarea class="form-control" id="exampleFormControlTextarea2" name="address_second" rows="3" [(ngModel)]="profile.address_second"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Gender</label>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" id="gridRadiosc" name="gender" checked  [(ngModel)]="profile.gender" value="00">Male
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" id="gridRadios2c" name="gender"   [(ngModel)]="profile.gender" value="01">Female
+              </label>
+            </div>
+          </div>
+          <div style="float: right">
+            <button type="button" class="btn btn-info" style="color: white; margin-right: 4px" [routerLink]="['../']">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer" style="    background-color: #d2edff;">
       </div>
     </div>
   </div>
