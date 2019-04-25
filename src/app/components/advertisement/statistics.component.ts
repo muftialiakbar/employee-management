@@ -40,6 +40,7 @@ export class StatisticsComponent {
   public setDay: string;
   public year= [] as any;
   public location = [] as any;
+  public advertisementData = [] as any;
 
   public minDate = moment(new Date(2019, 0, 1)).format('YYYY-MM-DD');
   public maxDate = moment(new Date()).add(-1, 'days').format('YYYY-MM-DD');
@@ -61,6 +62,12 @@ export class StatisticsComponent {
         this.id = +params['id'];
       }
     );
+
+    this.advertisementService.getDataID(this.id)
+      .subscribe(res => {
+        this.advertisementData = res.data;
+      });
+
     this.dataSet.id = this.id;
     this.dataSet.time = 'week';
     this.dataSet.action = ['impression'];

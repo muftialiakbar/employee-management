@@ -18,7 +18,8 @@ export class ConfigService {
   };
 
   img = {
-    'image': 'http://192.168.1.36:9000/'
+    // 'image': 'http://192.168.1.36:9000/'
+    'image': 'http://api.pushads.amandjaja.com/'
   };
 
   getFormData(object) {

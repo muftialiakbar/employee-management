@@ -117,7 +117,7 @@
       <div class="modal-body">
           <div style="background-color: #97989730; padding: 5px; border-radius: 5px; margin-bottom: 5px;">
               <table class="table" style=" color: #86939e">
-                <tr>
+                <!--<tr>
                   <td><b>ID</b></td>
                   <td class="custom-width-5">:</td>
                   <td>{{list.id}}</td>
@@ -131,7 +131,7 @@
                   <td><b>Group ID</b></td>
                   <td class="custom-width-5">:</td>
                   <td>{{list.group_id}}</td>
-                </tr>
+                </tr>-->
                 <tr>
                   <td><b>Name</b></td>
                   <td class="custom-width-5">:</td>
@@ -186,25 +186,6 @@
                   <td><b>Aps</b></td>
                   <td class="custom-width-5">:</td>
                   <td><div *ngFor="let data of list.aps">{{data.ap_name}}</div></td>
-                </tr>
-                <tr>
-                  <td><b>Kota</b></td>
-                  <td class="custom-width-5">:</td>
-                  <td>
-                    <div *ngFor="let data of list.kotas">{{data}}</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><b>Witel</b></td>
-                  <td class="custom-width-5">:</td>
-                  <td>
-                    <div *ngFor="let data of list.witels">{{data}}</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><b>Regional</b></td>
-                  <td class="custom-width-5">:</td>
-                  <td>{{list.regionals}}</td>
                 </tr>
                 <tr>
                   <td><b>Featured</b></td>
