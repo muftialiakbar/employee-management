@@ -33,5 +33,6 @@ export interface AdvertisementInterface {
   'aps': any,
   'account': any,
   'group':any,
-  'dataChecked': boolean
+  'dataChecked': boolean,
+  'price': number
 }

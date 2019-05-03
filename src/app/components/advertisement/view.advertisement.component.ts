@@ -15,6 +15,7 @@ export class ViewAdvertisementComponent {
   public list: AdvertisementInterface = [] as any;
   public page: number = 1;
   public searchKey: FormControl = new FormControl();
+  public group: string;
 
   constructor(private service : AdvertisementService) {}
 
@@ -48,6 +49,7 @@ export class ViewAdvertisementComponent {
     return this.service.getDataID(id)
       .subscribe( res => {
         this.list = res.data;
+        this.group = this.list.group.name;
       });
   }
 

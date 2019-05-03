@@ -117,40 +117,20 @@
       <div class="modal-body">
           <div style="background-color: #97989730; padding: 5px; border-radius: 5px; margin-bottom: 5px;">
               <table class="table" style=" color: #86939e">
-                <!--<tr>
-                  <td><b>ID</b></td>
-                  <td class="custom-width-5">:</td>
-                  <td>{{list.id}}</td>
-                </tr>
-                <tr>
-                  <td><b>Account ID</b></td>
-                  <td class="custom-width-5">:</td>
-                  <td>{{list.account_id}}</td>
-                </tr>
-                <tr>
-                  <td><b>Group ID</b></td>
-                  <td class="custom-width-5">:</td>
-                  <td>{{list.group_id}}</td>
-                </tr>-->
                 <tr>
                   <td><b>Name</b></td>
                   <td class="custom-width-5">:</td>
                   <td>{{list.name}}</td>
                 </tr>
                 <tr>
+                  <td><b>Group</b></td>
+                  <td class="custom-width-5">:</td>
+                  <td>{{this.group}}</td>
+                </tr>
+                <tr>
                   <td><b>Code</b></td>
                   <td class="custom-width-5">:</td>
                   <td>{{list.code}}</td>
-                </tr>
-                <tr>
-                  <td><b>Description</b></td>
-                  <td class="custom-width-5">:</td>
-                  <td><div [innerHtml]="list.description"></div></td>
-                </tr>
-                <tr>
-                  <td><b>Priority</b></td>
-                  <td class="custom-width-5">:</td>
-                  <td>{{list.priority}}</td>
                 </tr>
                 <tr>
                   <td><b>Start Date</b></td>
@@ -163,9 +143,54 @@
                   <td>{{list._end}}</td>
                 </tr>
                 <tr>
+                  <td><b>Impression</b></td>
+                  <td class="custom-width-5">:</td>
+                  <td>{{list._impression}}</td>
+                </tr>
+                <tr>
+                  <td><b>Click</b></td>
+                  <td class="custom-width-5">:</td>
+                  <td>{{list._click}}</td>
+                </tr>
+                <tr>
+                  <td><b>View</b></td>
+                  <td class="custom-width-5">:</td>
+                  <td>{{list._view}}</td>
+                </tr>
+                <tr>
                   <td><b>Type</b></td>
                   <td class="custom-width-5">:</td>
                   <td>{{list.type == "01" ? 'cpm' : list.type == "02" ? 'cpc' : list.type == "03" ? 'cpv' : list.type == "04" ? 'cpa' : list.type == "05" ? 'cpo' : ''}}</td>
+                </tr>
+                <tr>
+                  <td><b>Target</b></td>
+                  <td class="custom-width-5">:</td>
+                  <td>{{list.target}}</td>
+                </tr>
+                <tr>
+                  <td><b>Reach</b></td>
+                  <td class="custom-width-5">:</td>
+                  <td>{{list.reach}}</td>
+                </tr>
+                <tr>
+                  <td><b>Budget</b></td>
+                  <td class="custom-width-5">:</td>
+                  <td>{{list.budget}}</td>
+                </tr>
+                <tr>
+                  <td><b>Price</b></td>
+                  <td class="custom-width-5">:</td>
+                  <td>{{list.price}}</td>
+                </tr>
+                <tr>
+                  <td><b>Description</b></td>
+                  <td class="custom-width-5">:</td>
+                  <td><div [innerHtml]="list.description"></div></td>
+                </tr>
+                <tr>
+                  <td><b>Priority</b></td>
+                  <td class="custom-width-5">:</td>
+                  <td>{{list.priority}}</td>
                 </tr>
                 <tr>
                   <td><b>OS</b></td>
@@ -176,11 +201,6 @@
                   <td><b>Charging Type</b></td>
                   <td class="custom-width-5">:</td>
                   <td>{{list.charging_type}}</td>
-                </tr>
-                <tr>
-                  <td><b>Target</b></td>
-                  <td class="custom-width-5">:</td>
-                  <td>{{list.target}}</td>
                 </tr>
                 <tr>
                   <td><b>Aps</b></td>

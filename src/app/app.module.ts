@@ -26,23 +26,14 @@ import {GetProfileService} from './service/getProfile.service';
 import {BsNgxPaginationModule} from 'bs-ngx-pagination';
 import {GroupService} from './service/group.service';
 import {GroupAccountService} from './service/group.account.service';
-import {CategoryService} from './service/category.service';
-import {CATEGORY_COMPONENT} from './components/category';
 import {ADVERTISEMENT_COMPONENT} from './components/advertisement';
-import {AdvertisementImageService} from './service/advertisement.image.service';
 import {AdvertisementService} from './service/advertisement.service';
-import {AdvertisementVideoService} from './service/advertisement.video.service';
-import {ImageSizeService} from './service/image.size.service';
-import {IMAGE_SIZE_COMPONENT} from './components/image size';
-import {VideoSizeService} from './service/video.size.service';
-import {VIDEO_SIZE_COMPONENT} from './components/video size';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import {OwlMomentDateTimeModule} from 'ng-pick-datetime/date-time/adapter/moment-adapter/moment-date-time.module';
 import {OwlDateTimeModule} from 'ng-pick-datetime';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {TelkomapsService} from './service/telkomaps.service';
 import {MatFormFieldModule, MatInputModule, MatSelectModule} from '@angular/material';
 import {NgxMatSelectSearchModule} from 'ngx-mat-select-search';
 import {BsNgxHouratdayPickerModule} from 'bs-ngx-houratday-picker';
@@ -52,7 +43,6 @@ import {ChartComponent} from './components/chart/chart.component';
 import {ChartService} from './service/chart.service';
 import {BarchartComponent} from './components/chart/barchart.component';
 import {PieChartComponent} from './components/chart/piechart.component';
-import {GROUP_COMPONENT} from './components/group';
 import {GROUP_ACCOUNT_COMPONENT} from './components/group/group-account';
 import {ExcelService} from './service/excel.service';
 import {ProfileChangeComponent} from './components/profile/profile.change.component';
@@ -74,15 +64,10 @@ import {ChangePasswordComponent} from './components/profile/change-password.comp
     ProfileComponent,
     ProfileChangeComponent,
     ChangePasswordComponent,
-    CATEGORY_COMPONENT,
     ADVERTISEMENT_COMPONENT,
-    IMAGE_SIZE_COMPONENT,
-    VIDEO_SIZE_COMPONENT,
-    // TELKOMAPS_COMPONENT,
     ChartComponent,
     BarchartComponent,
     PieChartComponent,
-    GROUP_COMPONENT,
     GROUP_ACCOUNT_COMPONENT
   ],
   imports: [
@@ -117,13 +102,7 @@ import {ChangePasswordComponent} from './components/profile/change-password.comp
     AuthGuard,
     GroupService,
     GroupAccountService,
-    CategoryService,
     AdvertisementService,
-    AdvertisementImageService,
-    AdvertisementVideoService,
-    ImageSizeService,
-    VideoSizeService,
-    TelkomapsService,
     TCX,
     ChartService,
     ExcelService,

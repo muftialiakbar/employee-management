@@ -14,12 +14,6 @@ export class ConfigService {
     // 'api' : 'http://192.168.1.36:9000/frog/',
     // 'image': 'http://192.168.1.36:9000/',
     'chart' : 'http://sa.pushads.amandjaja.com/elderberry/service/content/'
-    //  'chart' : 'https://statistic.surewin.co.id/elderberry/service/content/'
-  };
-
-  img = {
-    // 'image': 'http://192.168.1.36:9000/'
-    'image': 'http://api.pushads.amandjaja.com/'
   };
 
   getFormData(object) {
