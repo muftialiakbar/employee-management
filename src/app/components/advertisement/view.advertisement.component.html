@@ -115,7 +115,185 @@
         </button>
       </div>
       <div class="modal-body">
-          <div style="background-color: #97989730; padding: 5px; border-radius: 5px; margin-bottom: 5px;">
+        <div style="padding: 5px; border-radius: 5px; margin-bottom: 5px;">
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Name :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{list.name}}</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Group :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{this.group}}</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Code :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{list.code}}</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Start Date :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{list._start}}</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              End Date :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{list._end}}</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Impression :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{list._impression}}</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Click :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{list._click}}</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              View :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{list._view}}</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Type :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{list.type == "01" ? 'cpm' : list.type == "02" ? 'cpc' : list.type == "03" ? 'cpv' : list.type == "04" ? 'cpa' : list.type == "05" ? 'cpo' : ''}}</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Target :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{list.target}}</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Reach :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{list.reach}}</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Budget :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{list.budget}}</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Price :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{list.price}}</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Description :
+            </div>
+            <div style="font-size: 19px">
+              <div [innerHtml]="list.description" style="font-size: 19px; font-weight: 400;"></div>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Priority :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{list.priority}}</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              OS :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{list.os}}</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              APs :
+            </div>
+            <div style="font-size: 19px">
+              <div *ngFor="let data of list.aps"><b>{{data.ap_name}}</b></div>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Status :
+            </div>
+            <div class="row" style="padding: 10px">
+              <div style="font-size: 21px">
+                <div *ngIf="list.isActive == true" style="margin: 5px">
+                  <div class="badge badge-success">Active</div>
+                </div>
+                <div *ngIf="list.isActive != true" style="margin: 5px">
+                  <div class="badge badge-danger">Not Active</div>
+                </div>
+              </div>
+              <div style="font-size: 21px">
+                <div *ngIf="list.isSelected == true" style="margin: 5px">
+                  <div class="badge badge-primary">Selected</div>
+                </div>
+                <div *ngIf="list.isSelected != true" style="margin: 5px">
+                  <div class="badge badge-primary">Not Selected</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Create :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{list.created_at}}</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Update :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{list.updated_at}}</b>
+            </div>
+          </div>
+        </div>
+
+          <!--<div style="background-color: #97989730; padding: 5px; border-radius: 5px; margin-bottom: 5px;">
               <table class="table" style=" color: #86939e">
                 <tr>
                   <td><b>Name</b></td>
@@ -254,7 +432,7 @@
                   <td>{{list.updated_at}}</td>
                 </tr>
               </table>
-        </div>
+        </div>-->
       </div>
       <div class="modal-footer">
       </div>
