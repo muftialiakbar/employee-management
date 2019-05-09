@@ -23,6 +23,7 @@ export interface AdvertisementInterface {
   'isNational': number,
   'os': string,
   'isActive': number,
+  'isSelected' : number,
   'status': string,
   'created_at': string,
   'updated_at': string,
