@@ -76,4 +76,12 @@ export class ViewAdvertisementComponent {
     if(date == null) return null;
     else return moment(date).format('dddd, DD MMMM YYYY, HH:mm');
   }
+
+  convert(data){
+    if(parseInt(data) >= 1000){
+      return data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    } else {
+      return data;
+    }
+  }
 }

@@ -35,5 +35,8 @@ export interface AdvertisementInterface {
   'account': any,
   'group':any,
   'dataChecked': boolean,
-  'price': number
+  'price': number,
+  '_impression': number,
+  '_click' : number,
+  '_view' : number
 }

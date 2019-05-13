@@ -43,7 +43,6 @@ import {ChartComponent} from './components/chart/chart.component';
 import {ChartService} from './service/chart.service';
 import {BarchartComponent} from './components/chart/barchart.component';
 import {PieChartComponent} from './components/chart/piechart.component';
-import {GROUP_ACCOUNT_COMPONENT} from './components/group/group-account';
 import {ExcelService} from './service/excel.service';
 import {ProfileChangeComponent} from './components/profile/profile.change.component';
 import {ChangePasswordComponent} from './components/profile/change-password.component';
@@ -68,7 +67,6 @@ import {ChangePasswordComponent} from './components/profile/change-password.comp
     ChartComponent,
     BarchartComponent,
     PieChartComponent,
-    GROUP_ACCOUNT_COMPONENT
   ],
   imports: [
     BrowserModule,

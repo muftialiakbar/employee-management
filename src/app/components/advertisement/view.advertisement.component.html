@@ -57,20 +57,20 @@
                     <td>
                       <div>
                         <div><small class="text-black-50">Impression </small></div>
-                        <div><b style="font-size: 15px;">{{data._impression}}</b></div>
+                        <div><b style="font-size: 15px;">{{convert(data._impression)}}</b></div>
                         <div><small class="text-black-50">Click </small></div>
-                        <div><b style="font-size: 15px;">{{data._click}}</b></div>
+                        <div><b style="font-size: 15px;">{{convert(data._click)}}</b></div>
                         <div><small class="text-black-50">View </small></div>
-                        <div><b style="font-size: 15px;">{{data._view}}</b></div>
+                        <div><b style="font-size: 15px;">{{convert(data._view)}}</b></div>
                       </div>
                     </td>
                     <td>
                       <div>
                         <div><b style="font-size: 15px;">{{data.type == "01" ? 'cpm' : data.type == "02" ? 'cpc' : data.type == "03" ? 'cpv' : data.type == "04" ? 'cpa' : data.type == "05" ? 'cpo' : ''}}</b></div>
                         <div><small class="text-black-50">Target </small></div>
-                        <div><b style="font-size: 15px;">{{data.target}}</b></div>
+                        <div><b style="font-size: 15px;">{{convert(data.target)}}</b></div>
                         <div><small class="text-black-50">Reach </small></div>
-                        <div><b style="font-size: 15px;">{{data.reach}}</b></div>
+                        <div><b style="font-size: 15px;">{{convert(data.reach)}}</b></div>
                       </div>
                     </td>
                     <td>
@@ -169,7 +169,7 @@
               Impression :
             </div>
             <div style="font-size: 19px">
-              <b>{{list._impression}}</b>
+              <b>{{convert(list._impression)}}</b>
             </div>
           </div>
           <div style="margin-bottom: 15px">
@@ -177,7 +177,7 @@
               Click :
             </div>
             <div style="font-size: 19px">
-              <b>{{list._click}}</b>
+              <b>{{convert(list._click)}}</b>
             </div>
           </div>
           <div style="margin-bottom: 15px">
@@ -185,7 +185,7 @@
               View :
             </div>
             <div style="font-size: 19px">
-              <b>{{list._view}}</b>
+              <b>{{convert(list._view)}}</b>
             </div>
           </div>
           <div style="margin-bottom: 15px">
@@ -201,7 +201,7 @@
               Target :
             </div>
             <div style="font-size: 19px">
-              <b>{{list.target}}</b>
+              <b>{{convert(list.target)}}</b>
             </div>
           </div>
           <div style="margin-bottom: 15px">
@@ -209,7 +209,7 @@
               Reach :
             </div>
             <div style="font-size: 19px">
-              <b>{{list.reach}}</b>
+              <b>{{convert(list.reach)}}</b>
             </div>
           </div>
           <div style="margin-bottom: 15px">
@@ -217,7 +217,7 @@
               Budget :
             </div>
             <div style="font-size: 19px">
-              <b>{{list.budget}}</b>
+              <b>{{convert(list.budget)}}</b>
             </div>
           </div>
           <div style="margin-bottom: 15px">
@@ -225,7 +225,7 @@
               Price :
             </div>
             <div style="font-size: 19px">
-              <b>{{list.price}}</b>
+              <b>{{convert(list.price)}}</b>
             </div>
           </div>
           <div style="margin-bottom: 15px">
