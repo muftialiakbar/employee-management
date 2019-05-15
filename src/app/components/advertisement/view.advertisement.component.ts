@@ -50,6 +50,9 @@ export class ViewAdvertisementComponent {
       .subscribe( res => {
         this.list = res.data;
         this.group = this.list.group.name;
+        if(this.list.description == '<p>&nbsp;</p>'){
+          this.list.description = '-';
+        }
       });
   }
 

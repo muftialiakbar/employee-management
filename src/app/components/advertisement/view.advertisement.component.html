@@ -232,6 +232,9 @@
             <div style="color: #808080a8">
               Description :
             </div>
+            <div style="font-size: 19px" *ngIf="list.description == null">
+              <b>-</b>
+            </div>
             <div style="font-size: 19px">
               <div [innerHtml]="list.description" style="font-size: 19px; font-weight: 400;"></div>
             </div>
@@ -239,6 +242,9 @@
           <div style="margin-bottom: 15px">
             <div style="color: #808080a8">
               Priority :
+            </div>
+            <div style="font-size: 19px" *ngIf="list.priority == null">
+              <b>-</b>
             </div>
             <div style="font-size: 19px">
               <b>{{list.priority}}</b>
@@ -248,6 +254,9 @@
             <div style="color: #808080a8">
               OS :
             </div>
+            <div style="font-size: 19px" *ngIf="list.os == ''">
+              <b>-</b>
+            </div>
             <div style="font-size: 19px">
               <b>{{list.os}}</b>
             </div>
@@ -255,6 +264,9 @@
           <div style="margin-bottom: 15px">
             <div style="color: #808080a8">
               APs :
+            </div>
+            <div style="font-size: 19px" *ngIf="list.aps == '' ">
+              <b>-</b>
             </div>
             <div style="font-size: 19px">
               <div *ngFor="let data of list.aps"><b>{{data.ap_name}}</b></div>
@@ -275,10 +287,10 @@
               </div>
               <div style="font-size: 21px">
                 <div *ngIf="list.isSelected == true" style="margin: 5px">
-                  <div class="badge badge-success">Selected</div>
+                  <div class="badge badge-success">Selected APs</div>
                 </div>
                 <div *ngIf="list.isSelected != true" style="margin: 5px">
-                  <div class="badge badge-danger">Not Selected</div>
+                  <div class="badge badge-danger">Not Selected APs</div>
                 </div>
               </div>
             </div>
@@ -294,6 +306,9 @@
           <div style="margin-bottom: 15px">
             <div style="color: #808080a8">
               Update :
+            </div>
+            <div style="font-size: 19px" *ngIf="list.updated_at == null">
+              <b>-</b>
             </div>
             <div style="font-size: 19px">
               <b>{{list.updated_at}}</b>
