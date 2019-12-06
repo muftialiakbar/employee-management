@@ -66,7 +66,7 @@ export class ViewAdvertisementComponent {
   }
 
   search(event){
-    if(event.key == 'Enter'){
+    if(event.value == ''){
         this.service.getData({'keys' : 'name', 'keyword': this.searchKey.value})
           .subscribe( key => {
             this.datas = key.data.data;

@@ -94,13 +94,16 @@ export class OverviewComponent {
           });
 
         //DATA MERGE
+
+
         this.service.getDataMerge(
           this.dataSet.time,
           {
               components: this.dataSet.components,
               component_values: this.dataSet.component_values,
               action: ['impression','click','view','action','order'],
-              merge: true, start_date: this.dataSet.start_date,
+              merge: true,
+              start_date: this.dataSet.start_date,
               end_date: this.dataSet.end_date
             }
           )
@@ -113,6 +116,7 @@ export class OverviewComponent {
             this.sessionMerge = res.data.unique_session;
             this.deviceMerge = res.data.unique_device;
           });
+
         //DATA TABLE
 
         this.service.getDataTable(

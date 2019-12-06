@@ -12,12 +12,12 @@ export class SessionInterceptor implements HttpInterceptor {
     ) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler):  Observable<HttpEvent<any>> {
-    if (!this.Cookies.check('pushads_session')) {
+    if (!this.Cookies.check('pushads_gpx_session')) {
       this.router.navigate(['/']);
       // return next.handle(req);
     }
     const secureReq = req.clone( {
-      headers: req.headers.set('X-SESSION-ID', this.Cookies.get('pushads_session'))
+      headers: req.headers.set('X-SESSION-ID', this.Cookies.get('pushads_gpx_session'))
     });
     return next.handle(secureReq);
   }

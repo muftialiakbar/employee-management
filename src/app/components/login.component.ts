@@ -22,7 +22,7 @@ export class LoginComponent {
       private service: LoginService,
       private Cookies: CookieService
     ){
-      if(Cookies.check('pushads_session')){
+      if(Cookies.check('pushads_gpx_session')){
         router.navigate(['/dashboard']);
       }
     }
@@ -31,9 +31,8 @@ export class LoginComponent {
       this.service.login(this.dataLogin)
         .subscribe(res => {
         if (res.status == 1) {
-          this.Cookies.set('pushads_session', res.data.id, new Date(res.data.expired_at));
-          window.location.reload();
-          /*this.router.navigate(['dashboard']);*/
+          this.Cookies.set('pushads_gpx_session', res.data.id, new Date(res.data.expired_at));
+          this.router.navigate(['dashboard']);
         } else {
           Swal(
             'Oops...',

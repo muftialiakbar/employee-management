@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
   ) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (!this.Cookies.check('pushads_session')) {
+    if (!this.Cookies.check('pushads_gpx_session')) {
        this.router.navigate(['/']);
        return false;
     }
