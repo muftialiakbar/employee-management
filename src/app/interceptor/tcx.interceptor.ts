@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
-import {TCX} from 'verzth-tcx-js-angular/tcx-ng';
 import {ConfigService} from '../service/config.service';
+import {TCX} from 'ngx-tcx';
 export const headerChart = 'HeaderChart';
 
 @Injectable()
@@ -34,7 +34,7 @@ export class TcxInterceptor implements HttpInterceptor{
      });
    }
 
-    const time = this.tcx.getTime();
+    const time = TCX.getTime();
     let secureReq = req.clone( {
       headers: req.headers
         .set('X-TCX-TYPE', 'FTC')

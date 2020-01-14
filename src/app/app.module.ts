@@ -37,7 +37,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatFormFieldModule, MatInputModule, MatSelectModule} from '@angular/material';
 import {NgxMatSelectSearchModule} from 'ngx-mat-select-search';
 import {BsNgxHouratdayPickerModule} from 'bs-ngx-houratday-picker';
-import {TCX} from 'verzth-tcx-js-angular/tcx-ng';
 import {ChartsModule} from 'ng2-charts';
 import {ChartComponent} from './components/chart/chart.component';
 import {ChartService} from './service/chart.service';
@@ -46,6 +45,7 @@ import {PieChartComponent} from './components/chart/piechart.component';
 import {ExcelService} from './service/excel.service';
 import {ProfileChangeComponent} from './components/profile/profile.change.component';
 import {ChangePasswordComponent} from './components/profile/change-password.component';
+import {TCX} from 'ngx-tcx';
 
 
 @NgModule({
@@ -98,8 +98,8 @@ import {ChangePasswordComponent} from './components/profile/change-password.comp
     IndexInterceptor,
     GetProfileService,
     AuthGuard,
-    GroupService,
-    GroupAccountService,
+    // GroupService,
+    // GroupAccountService,
     AdvertisementService,
     TCX,
     ChartService,
