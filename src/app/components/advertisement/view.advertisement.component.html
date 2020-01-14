@@ -278,18 +278,18 @@
             </div>
             <div class="row" style="padding: 10px">
               <div style="font-size: 21px">
-                <div *ngIf="list.isActive == true" style="margin: 5px">
+                <div *ngIf="list.isActive == 1" style="margin: 5px">
                   <div class="badge badge-success">Active</div>
                 </div>
-                <div *ngIf="list.isActive != true" style="margin: 5px">
+                <div *ngIf="list.isActive != 1" style="margin: 5px">
                   <div class="badge badge-danger">Not Active</div>
                 </div>
               </div>
               <div style="font-size: 21px">
-                <div *ngIf="list.isSelected == true" style="margin: 5px">
+                <div *ngIf="list.isSelected == 1" style="margin: 5px">
                   <div class="badge badge-success">Selected APs</div>
                 </div>
-                <div *ngIf="list.isSelected != true" style="margin: 5px">
+                <div *ngIf="list.isSelected != 1" style="margin: 5px">
                   <div class="badge badge-danger">Not Selected APs</div>
                 </div>
               </div>

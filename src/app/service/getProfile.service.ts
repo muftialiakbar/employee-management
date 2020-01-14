@@ -12,12 +12,19 @@ export class GetProfileService {
     private httpClient: HttpClient
   ) {}
 
-  // noinspection JSAnnotator
-  getProfile(): Observable<ResponseInterface<ProfileInterface[]>> {
-    // noinspection JSAnnotator
-    return this.httpClient.get<ResponseInterface<ProfileInterface[]>>(
+
+  /*getProfile(event): Observable<ResponseInterface<any>> {
+    return this.http.get<ResponseInterface<any>>(
+      this.configService.url.api + 'backend/profile/administrator',
+      {params:event}
+    );
+  }*/
+
+
+  getProfile(event): Observable<ResponseInterface<any>> {
+    return this.httpClient.get<ResponseInterface<any>>(
       this.Config.url.api + 'backend/profile/group',
-      {}
+      {params: event}
     );
   }
 

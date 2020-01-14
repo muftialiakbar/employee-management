@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {GetProfileService} from '../../service/getProfile.service';
 import * as moment from 'moment';
 import Swal from 'sweetalert2';
+import {ProfileInterface} from '../../interface/profile.interface';
 
 @Component({
   templateUrl: './profile.change.component.html',
@@ -11,13 +12,13 @@ export class ProfileChangeComponent implements OnInit{
 
   public dataDate = {} as any;
   public date:any = {};
-  public profile:any = {};
+  public profile: ProfileInterface = {} as any;
 
 
   constructor(private service: GetProfileService, private router: Router) {}
 
   ngOnInit() {
-    this.service.getProfile()
+    this.service.getProfile({})
       .subscribe(res => {
         this.profile = res.data;
         this.dataDate.birthdate = this.profile.birthdate;

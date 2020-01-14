@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {GetProfileService} from '../../service/getProfile.service';
+import {ProfileInterface} from '../../interface/profile.interface';
 
 @Component({
   selector : 'p-profile',
@@ -7,10 +8,10 @@ import {GetProfileService} from '../../service/getProfile.service';
 })
 
 export class ProfileComponent implements OnInit {
-  public datas = [];
+  public datas: ProfileInterface = [] as any;
   constructor(private service: GetProfileService) {}
   ngOnInit() {
-    this.service.getProfile()
+    this.service.getProfile({})
       .subscribe(res => this.datas = res.data  );
   }
 }

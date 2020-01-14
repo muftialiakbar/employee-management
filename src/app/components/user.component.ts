@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {GetProfileService} from '../service/getProfile.service';
+import {ProfileInterface} from '../interface/profile.interface';
 
 @Component({
   selector : 'cs-user',
@@ -11,13 +12,13 @@ import {GetProfileService} from '../service/getProfile.service';
 export class UserComponent {
   @Input() name: string;
   @Input() image_photo: string;
-  /*doLogin(e) {
-    e.preventDefault();
-  }*/
-  public datas = [];
+  // public datas: ProfileInterface = [] as any;
+  public datas: ProfileInterface = [] as any;
   constructor(private service: GetProfileService) {}
   ngOnInit() {
-    this.service.getProfile()
-      .subscribe(res => this.datas = res.data  );
+    this.service.getProfile({})
+      .subscribe(res => {
+        this.datas = res.data
+      });
   }
 }
