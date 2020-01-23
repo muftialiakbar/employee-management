@@ -38,5 +38,6 @@ export interface AdvertisementInterface {
   'price': number,
   '_impression': number,
   '_click' : number,
-  '_view' : number
+  '_view' : number,
+  'isHidden' : any
 }

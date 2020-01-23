@@ -20,6 +20,7 @@ export class ViewAdvertisementComponent {
   constructor(private service : AdvertisementService) {}
 
   ngOnInit(){
+    this.list.isHidden = true;
     this.service.getData({page: this.page})
       .subscribe( res => {
         this.datas = res.data.data;
