@@ -22,4 +22,11 @@ export class AdvertisementService{
       this.configService.url.api + 'backend/group/advertisement', {params: {id: id}}
     )
   }
+
+  getDataExcel(event):Observable<ResponseInterface<any>>{
+    return this.http.get<ResponseInterface<any>>(
+      this.configService.url.api + 'backend/group/advertisement',
+      {params : event}
+    )
+  }
 }

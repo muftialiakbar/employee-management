@@ -41,14 +41,17 @@ export class StatisticsComponent {
   public year= [] as any;
   public location = [] as any;
   public advertisementData = [] as any;
+  public statusButton : boolean;
 
   public minDate = moment(new Date(2019, 0, 1)).format('YYYY-MM-DD');
   public maxDate = moment(new Date()).add(-1, 'days').format('YYYY-MM-DD');
 
   public dataProfile = [] as any;
   public group_id : string;
-
   private nameAdvertisement: string;
+  public dataConvert = [] as any;
+
+
   constructor(
     private service: ChartService,
     private excelService: ExcelService,
@@ -57,6 +60,8 @@ export class StatisticsComponent {
   ){}
 
   ngOnInit(){
+    this.statusButton = true;
+
     this.activatedRoute.params.subscribe(
       params => {
         this.id = +params['id'];
@@ -146,6 +151,7 @@ export class StatisticsComponent {
             )
             .subscribe(res => {
               this.datas = res.data;
+              this.convertDataToDate();
             });
           }
         );
@@ -176,7 +182,7 @@ export class StatisticsComponent {
       let start = moment(this.dataSet.start_date, "YYYY-MM-DD");
       let end = moment(this.dataSet.end_date, "YYYY-MM-DD");
       this.range = end.diff(start, 'days');
-      this.render();
+      // this.render();
     } else if (this.setDay == '7days') {
       var startDate = moment(new Date()).add(-7, 'days').format('YYYY-MM-DD');
       var endDate = moment(new Date()).add(-1, 'days').format('YYYY-MM-DD');
@@ -200,7 +206,7 @@ export class StatisticsComponent {
       if(this.range > 5){
         this.dataSet.time = "daily";
       }
-      this.render();
+      // this.render();
     }else if (this.setDay == '1month'){
       var startDate = moment(new Date()).add(-1, 'month').format('YYYY-MM-DD');
       var endDate = moment(new Date()).add(-1, 'days').format('YYYY-MM-DD');
@@ -223,7 +229,7 @@ export class StatisticsComponent {
       if(this.range > 26){
         this.dataSet.time = "daily";
       }
-      this.render();
+      // this.render();
     }else if (this.setDay == '3month'){
       var startDate = moment(new Date()).add(-3, 'month').format('YYYY-MM-DD');
       var endDate = moment(new Date()).add(-1, 'days').format('YYYY-MM-DD');
@@ -246,7 +252,7 @@ export class StatisticsComponent {
       if(this.range > 60){
         this.dataSet.time = "week";
       }
-      this.render();
+      // this.render();
     }else if (this.setDay == '6month'){
       var startDate = moment(new Date()).add(-6, 'month').format('YYYY-MM-DD');
       var endDate = moment(new Date()).add(-1, 'days').format('YYYY-MM-DD');
@@ -269,7 +275,7 @@ export class StatisticsComponent {
       if(this.range > 60){
         this.dataSet.time = "week";
       }
-      this.render();
+      // this.render();
     }else if (this.setDay == '1year'){
       var startDate = moment(new Date()).add(-1, 'year').format('YYYY-MM-DD');
       var endDate = moment(new Date()).add(-1, 'days').format('YYYY-MM-DD');
@@ -292,7 +298,7 @@ export class StatisticsComponent {
       if(this.range > 180){
         this.dataSet.time = "month";
       }
-      this.render();
+      // this.render();
     }
 
     //hitung Range tanggal
@@ -317,7 +323,7 @@ export class StatisticsComponent {
       }else if(this.range > 180){
         this.dataSet.time = "month";
       }
-      this.render();
+      // this.render();
     }
 
     this.setDay = '';
@@ -347,6 +353,7 @@ export class StatisticsComponent {
           this.dataProfile = res.data;
           this.group_id = res.data.group_id;
           this.dataSet.component_values = [this.group_id.toString()];
+
 
           //LINE CHART
           this.service.getData(this.dataSet.time, this.dataSet)
@@ -397,6 +404,7 @@ export class StatisticsComponent {
             .pipe(takeUntil(this.ngUnsubscribe))
             .subscribe(res => {
               this.datas = res.data;
+              this.convertDataToDate();
               res.data.forEach(data => {
                 this.year = data._year;
               })
@@ -484,15 +492,15 @@ export class StatisticsComponent {
     }
   }
 
-  render(){
+ /* render(){
     this.renderChart();
-  }
+  }*/
 
   doExportExcelData() {
     const excelData: any = [];
-    this.datas.forEach(item => {
+    this.datas.forEach( (item,i) => {
       excelData.push({
-        Date: this.convertDate(item),
+        Date: this.dataConvert[i],
         Imperssion: this.convert(item._impression),
         'Click': this.convert(item._click),
         'CTR': this.percentClick(item) + '%',
@@ -502,5 +510,39 @@ export class StatisticsComponent {
         'ATR': this.percentAction(item) + '%'});
     });
     this.excelService.exportAsExcelFile(excelData, 'Report ' + this.nameAdvertisement + ' ' + moment().format('DD-MM-YYYY HH.mm.ss'));
+  }
+
+  searchStatistic() {
+    this.renderChart();
+  }
+
+  convertDataToDate(){
+    this.dataConvert = [];
+
+    //untuk data di table (convert data Date)
+    if(this.dataSet.time == 'hourly'){
+      this.datas.forEach( data =>{
+        let hourly = moment(data._date).hour(data._hour).format('dddd, DD MMMM YYYY, HH:00');
+        this.dataConvert.push(hourly);
+      });
+    }
+    else if(this.dataSet.time == 'daily'){
+      this.datas.forEach( data =>{
+        let daily = moment(data._date).format('dddd, DD MMMM YYYY');
+        this.dataConvert.push(daily);
+      });
+    }else if(this.dataSet.time == 'week'){
+      this.datas.forEach( res =>{
+        let week = 'Week '+res._week+', '+moment().year(res._year).dayOfYear(Number(res._week * 7))
+          .subtract(6,'days').format('DD MMM YYYY')+' - '+moment().year(res._year)
+          .dayOfYear(Number(res._week*7)).format('DD MMM YYYY');
+        this.dataConvert.push(week);
+      });
+    }else if(this.dataSet.time == 'month'){
+      this.datas.forEach( data =>{
+        let month = data._name+ ' ' + data._year;
+        this.dataConvert.push(month);
+      });
+    }
   }
 }

@@ -5,11 +5,11 @@ export class ConfigService {
   constructor () {}
 
   url = {
-    'api' : 'https://api.pushads.amandjaja.com/frog/',
-    'image': 'https://api.pushads.amandjaja.com/',
+    // 'api' : 'https://api.pushads.amandjaja.com/frog/',
+    // 'image': 'https://api.pushads.amandjaja.com/',
 
-    // 'api' : 'http://192.168.1.89:8800/frog/',
-    // 'image': 'http://192.168.1.89:8800/'
+    'api' : 'http://192.168.1.89:8800/frog/',
+    'image': 'http://192.168.1.89:8800/',
 
     // 'api' : 'http://192.168.1.36:9000/frog/',
     // 'image': 'http://192.168.1.36:9000/',

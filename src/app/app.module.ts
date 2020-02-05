@@ -23,7 +23,6 @@ import {AuthGuard} from './components/auth/auth.guard';
 import {ConfigService} from './service/config.service';
 import {ProfileComponent} from './components/profile/profile.component';
 import {GetProfileService} from './service/getProfile.service';
-import {BsNgxPaginationModule} from 'bs-ngx-pagination';
 import {GroupService} from './service/group.service';
 import {GroupAccountService} from './service/group.account.service';
 import {ADVERTISEMENT_COMPONENT} from './components/advertisement';
@@ -34,7 +33,7 @@ import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import {OwlMomentDateTimeModule} from 'ng-pick-datetime/date-time/adapter/moment-adapter/moment-date-time.module';
 import {OwlDateTimeModule} from 'ng-pick-datetime';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatFormFieldModule, MatInputModule, MatSelectModule} from '@angular/material';
+import {MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule} from '@angular/material';
 import {NgxMatSelectSearchModule} from 'ngx-mat-select-search';
 import {BsNgxHouratdayPickerModule} from 'bs-ngx-houratday-picker';
 import {ChartsModule} from 'ng2-charts';
@@ -46,6 +45,7 @@ import {ExcelService} from './service/excel.service';
 import {ProfileChangeComponent} from './components/profile/profile.change.component';
 import {ChangePasswordComponent} from './components/profile/change-password.component';
 import {TCX} from 'ngx-tcx';
+import {NgxBootstrapPaginationModule} from '@verzth/ngx-bootstrap-pagination';
 
 
 @NgModule({
@@ -74,7 +74,7 @@ import {TCX} from 'ngx-tcx';
     FormsModule,
     HttpClientModule,
     HttpModule,
-    BsNgxPaginationModule,
+    NgxBootstrapPaginationModule,
     CKEditorModule,
     NgbModule,
     NgbPaginationModule,
@@ -88,7 +88,8 @@ import {TCX} from 'ngx-tcx';
     ReactiveFormsModule,
     BsNgxHouratdayPickerModule,
     ChartsModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [
     ConfigService,
