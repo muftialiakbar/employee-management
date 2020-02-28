@@ -3,7 +3,6 @@ import {ChartService} from '../../service/chart.service';
 import {takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import * as moment from 'moment';
-import {ExcelService} from '../../service/excel.service';
 
 @Component({
   selector : 'cs-overview',
@@ -49,8 +48,7 @@ export class OverviewComponent {
   public dataConvert = [] as any;
 
   constructor(
-    private service: ChartService,
-    private excelService: ExcelService
+    private service: ChartService
   ){}
 
 
@@ -521,7 +519,7 @@ export class OverviewComponent {
     this.renderChart();
   }*/
 
-  doExportExcelData() {
+/*  doExportExcelData() {
     const excelData: any = [];
     this.datas.forEach((item,i) => {
       excelData.push({
@@ -535,7 +533,7 @@ export class OverviewComponent {
         'ATR': this.percentAction(item) + '%'});
     });
     this.excelService.exportAsExcelFile(excelData, 'Report ' + moment().format('DD-MM-YYYY HH.mm.ss'));
-  }
+  }*/
 
 
   searchStatistic() {

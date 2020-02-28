@@ -16,9 +16,9 @@ export class UserComponent {
   public datas: ProfileInterface = [] as any;
   constructor(private service: GetProfileService) {}
   ngOnInit() {
-    this.service.getProfile({})
+    /*this.service.getProfile({})
       .subscribe(res => {
         this.datas = res.data
-      });
+      });*/
   }
 }

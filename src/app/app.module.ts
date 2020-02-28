@@ -23,10 +23,6 @@ import {AuthGuard} from './components/auth/auth.guard';
 import {ConfigService} from './service/config.service';
 import {ProfileComponent} from './components/profile/profile.component';
 import {GetProfileService} from './service/getProfile.service';
-import {GroupService} from './service/group.service';
-import {GroupAccountService} from './service/group.account.service';
-import {ADVERTISEMENT_COMPONENT} from './components/advertisement';
-import {AdvertisementService} from './service/advertisement.service';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
@@ -41,7 +37,6 @@ import {ChartComponent} from './components/chart/chart.component';
 import {ChartService} from './service/chart.service';
 import {BarchartComponent} from './components/chart/barchart.component';
 import {PieChartComponent} from './components/chart/piechart.component';
-import {ExcelService} from './service/excel.service';
 import {ProfileChangeComponent} from './components/profile/profile.change.component';
 import {ChangePasswordComponent} from './components/profile/change-password.component';
 import {TCX} from 'ngx-tcx';
@@ -63,7 +58,6 @@ import {NgxBootstrapPaginationModule} from '@verzth/ngx-bootstrap-pagination';
     ProfileComponent,
     ProfileChangeComponent,
     ChangePasswordComponent,
-    ADVERTISEMENT_COMPONENT,
     ChartComponent,
     BarchartComponent,
     PieChartComponent,
@@ -98,13 +92,9 @@ import {NgxBootstrapPaginationModule} from '@verzth/ngx-bootstrap-pagination';
     CookieService,
     IndexInterceptor,
     GetProfileService,
-    AuthGuard,
-    // GroupService,
-    // GroupAccountService,
-    AdvertisementService,
+    // AuthGuard,
     TCX,
-    ChartService,
-    ExcelService,
+    ChartService
   ],
   bootstrap: [AppComponent]
 })

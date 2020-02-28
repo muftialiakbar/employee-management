@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "edukids-dashboard": {
+    "dashboard-statistic": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/edukids-dashboard",
+            "outputPath": "dist/dashboard-statistic",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "edukids-dashboard:build"
+            "browserTarget": "dashboard-statistic:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "edukids-dashboard:build:production"
+              "browserTarget": "dashboard-statistic:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "edukids-dashboard:build"
+            "browserTarget": "dashboard-statistic:build"
           }
         },
         "test": {
@@ -112,7 +112,7 @@
         }
       }
     },
-    "edukids-dashboard-e2e": {
+    "dashboard-statistic-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -121,11 +121,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "edukids-dashboard:serve"
+            "devServerTarget": "dashboard-statistic:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "edukids-dashboard:serve:production"
+              "devServerTarget": "dashboard-statistic:serve:production"
             }
           }
         },
@@ -141,5 +141,5 @@
       }
     }
   },
-  "defaultProject": "edukids-dashboard"
+  "defaultProject": "dashboard-statistic"
 }
