@@ -32,7 +32,7 @@
                       <label class="custom-control-label" for="checkedAll">&nbsp;</label>
                     </div>-->
                   </th>
-                  <th style="font-size: 15px; font-weight: bold"></th>
+                  <th style="font-size: 15px; font-weight: bold">NO</th>
                   <th style="font-size: 15px; font-weight: bold">NAME</th>
                   <th style="font-size: 15px; font-weight: bold; text-align: center">STATUS</th>
                   <th style="font-size: 15px; font-weight: bold"></th>
@@ -47,7 +47,7 @@
                       <label class="custom-control-label" for="label{{data.id}}">&nbsp;</label>
                     </div>-->
                   </td>
-                  <td></td>
+                  <td>{{ ((this.currentPage-1)*this.perPage)+ (i+1)}}</td>
                   <td>
                     <div><b>{{data.name}}</b></div>
                   </td>
@@ -89,7 +89,7 @@
           </div>
         </div>
       </div>
-
+      <ngx-bootstrap-pagination [(data)]="dataPage" (pageChange)="pageChange($event)" (perPageChange)="perPageChange($event)" *ngIf="this.datas.length >0"></ngx-bootstrap-pagination>
     </div>
   </div>
 </div>

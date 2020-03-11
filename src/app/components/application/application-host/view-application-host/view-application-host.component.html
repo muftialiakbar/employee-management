@@ -27,7 +27,7 @@
                 <tr class="no-b" style="background-color: #c4e9ffa1; color: grey">
                   <th style="text-align: center">
                   </th>
-                  <th style="font-size: 15px; font-weight: bold"></th>
+                  <th style="font-size: 15px; font-weight: bold">NO</th>
                   <th style="font-size: 15px; font-weight: bold">IP</th>
                   <th style="font-size: 15px; font-weight: bold; text-align: center">STATUS</th>
                   <th style="font-size: 15px; font-weight: bold"></th>
@@ -38,7 +38,7 @@
                 <tr *ngFor="let data of datas; let i= index">
                   <td style="text-align: center">
                   </td>
-                  <td></td>
+                  <td>{{ ((this.currentPage-1)*this.perPage)+ (i+1)}}</td>
                   <td>
                     <div><b>{{data.ip}}</b></div>
                   </td>
@@ -79,7 +79,7 @@
           </div>
         </div>
       </div>
-
+      <ngx-bootstrap-pagination [(data)]="dataPage" (pageChange)="pageChange($event)" (perPageChange)="perPageChange($event)" *ngIf="this.datas.length >0"></ngx-bootstrap-pagination>
     </div>
   </div>
 </div>

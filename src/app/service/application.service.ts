@@ -13,7 +13,7 @@ export class ApplicationService{
 
   getData(data): Observable<ResponseInterface<any>>{
     return this.http.get<ResponseInterface<any>>(
-      this.configService.url.api + 'application', {params: data}
+      this.configService.url.api + 'application/paginate', {params: data}
     )
   }
 

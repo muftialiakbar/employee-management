@@ -41,7 +41,7 @@ export class ViewApplicationHostComponent implements OnInit {
 
     this.service.getData(this.pid)
       .subscribe( res => {
-        this.datas = res.data;
+        this.datas = res.data.data;
         this.dataPage = res.data;
         this.currentPage = res.data.current_page;
         this.perPage = res.data.per_page;
@@ -162,7 +162,7 @@ export class ViewApplicationHostComponent implements OnInit {
   getData(){
     this.service.getData(this.pid)
       .subscribe( res => {
-        this.datas = res.data;
+        this.datas = res.data.data;
         this.dataPage = res.data;
         this.currentPage = res.data.current_page;
         this.perPage = res.data.per_page;
