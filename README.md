@@ -1,27 +1,22 @@
-# EdukidsDashboard
+aplikasi sederhana management employee.
+untuk menjalankan aplikasi ada beberapa tahapan:
+1 )harus menginstall json server dengan cara menjalankan npm install -g json-server pada cmd
+2) buka cmd(command promp) lalu arahkan pada directory program
+3) lalu jalankan json-server -p 5555 employee.json
+4)ketika server json sudah jalan
+5)pada directory project jalankan  npm install
+6)ketika sudah terintall, jalankan ng serve
+7)ketika  ng serve sudah jalan, pergi ke browser lalu ketik localhost:4200
+8)maka program akan jalan.
+9)ketika program sudah jalan
+maka akan terlihat halaman login maka masukkan:
+email : admin
+password : admin
+10)ketika sudah login maka akan terlihat halaman page employee yang berisi data employee yang dapat di edit,delete, dan add
+11)untuk melihat detail data employee anda dapat menekan tombol detail yang berwarna biru
+12) untuk menambahkan data, anda bisa menekan tombol create yang berada di atas kiri table
+13) untuk mengedit atau mengupdate data, anda bisa menekan tombol drop down atau tanda panah kebawah, yang berada disamping tombol detail
+lalu klik edit
+14) untuk delete atau menghapus data, anda bisa menekan tombol drop down atau tanda panah kebawah, yang berada disamping tombol detail
+lalu klik delete
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.4.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
