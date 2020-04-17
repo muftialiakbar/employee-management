@@ -1,30 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {DashboardComponent} from './components/dashboard.component';
-import {ProfileComponent} from './components/profile/profile.component';
-import {ProfileChangeComponent} from './components/profile/profile.change.component';
-import {ChangePasswordComponent} from './components/profile/change-password.component';
+import {LoginComponent} from './components/login.component';
 
 
 const routes: Routes = [
   {
-    path : '', component: DashboardComponent,
-    children: [
-      {
-        path : '',
-        loadChildren: './components/application/application.module#ApplicationModule'
-      },
-      {
-        path: 'trash',
-        loadChildren: './components/trash/trash.module#TrashModule'
-      },
-      {path: 'profile',
-        children: [
-          {path : '', component: ProfileComponent},
-          {path : 'change', component: ProfileChangeComponent}
-        ]},
-      { path : 'change-password', component: ChangePasswordComponent},
-    ]
+    path : '',component : LoginComponent
+  },
+  {
+    path : 'home2',
+    loadChildren: './components/employee2/employee2.module#Employee2Module'
   }
 ];
 

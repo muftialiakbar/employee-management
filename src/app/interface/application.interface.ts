@@ -1,7 +1,21 @@
 export interface ApplicationInterface {
   id: number,
-  name: string,
-  isActive: number,
-  ip : string,
-  access_key : string
+  dataChecked: boolean,
+  username : string,
+  phone : string,
+  email : string,
+  firstname : string,
+  lastname : string,
+  isActive : number,
+  isBlock : number,
+  password : string,
+  access_group_id : number,
+  access_group_ids : any,
+  isEmailValid : number,
+  isPhoneValid : number,
+  birthdate : string,
+  group : string,
+  basicSalary : number,
+  status : string,
+  description : string
 }

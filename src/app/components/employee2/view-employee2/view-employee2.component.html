@@ -1,0 +1,189 @@
+<div class="container-fluid animatedParent animateOnce" style="min-height: 112vh">
+  <div class="tab-content my-3" id="v-pills-tabContent">
+    <nav aria-label="breadcrumb" style="margin-bottom: 27px;">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">Employee Page</li>
+      </ol>
+    </nav>
+
+    <div class="tab-pane fade show active" id="menu1" role="tabpanel" aria-labelledby="v-pills-all-tab">
+      <div class="row my-3">
+        <div class="col-md-12">
+          <div class="card" style="margin: 5px 0 0;">
+            <div class="card-body">
+              <div class="row" style="margin: 0 12px">
+                <button class="btn btn-success mButton" style="margin-right: 6px; color: white;" routerLink="add">
+                  <i class="icon icon-plus-square" style="padding-right: unset"> Create</i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div style="clear: both"></div>
+          <div class="card r-0 shadow" style="margin-top:10px">
+            <div class="table-responsive">
+              <table class="table table-striped table-hover r-0">
+                <thead>
+                <tr class="no-b" style="background-color: #c4e9ffa1; color: grey">
+                  <th style="text-align: center">
+                  </th>
+                  <th style="font-size: 15px; font-weight: bold">NO</th>
+                  <th style="font-size: 15px; font-weight: bold">USERNAME</th>
+                  <th style="font-size: 15px; font-weight: bold">EMAIL</th>
+                  <th style="font-size: 15px; font-weight: bold">STATUS</th>
+                  <th style="font-size: 15px; font-weight: bold"></th>
+                </tr>
+                </thead>
+                <tbody class="unitTable">
+                <tr [hidden]="datas.length >0" style="text-align: center">
+                  <td colspan="6" style="font-weight: 200;color: grey;">
+                    DATA NOT FOUND
+                  </td>
+                </tr>
+                <tr *ngFor="let data of datas; let i = index">
+                  <td style="text-align: center">
+                  </td>
+                  <td>{{(i+1)}}</td>
+                  <td>{{data.username}}</td>
+                  <td>{{data.email}}</td>
+                  <td>{{data.status}}</td>
+                  <td>
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-primary icon-list-alt" data-toggle="modal" data-target="#Modal-detail-account" style="cursor: pointer; margin-right: 2px" (click)="getID(data.id)"> Detail</button>
+                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" data-boundary="viewport">
+                      </button>
+                      <div class="dropdown-menu">
+                        <button class="dropdown-item" type="button" style="cursor: pointer; font-size: 15px;" routerLink="edit/{{data.id}}"><i class="icon icon-edit"></i> Edit</button>
+                        <button class="dropdown-item" type="button" style="cursor: pointer; font-size: 15px;" (click)="delete(data.id)"><i class="icon icon-trash"></i> Delete</button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--MODAL DETAIL-->
+<div class="modal fade" id="Modal-detail-account" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true" style="z-index: 10000">
+  <div class="modal-dialog  popup" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel2">Detail</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div style="padding: 5px; border-radius: 5px; margin-bottom: 5px;">
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Username:
+            </div>
+            <div style="font-size: 19px">
+              <b>{{list.username}}</b>
+            </div>
+            <div style="font-size: 19px" *ngIf="list.username == null">
+              <b>-</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Email :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{list.email}}</b>
+            </div>
+            <div style="font-size: 19px" *ngIf="list.email == null">
+              <b>-</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Firstname :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{list.firstname}}</b>
+            </div>
+            <div style="font-size: 19px" *ngIf="list.firstname == null">
+              <b>-</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Lastname :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{list.lastname}}</b>
+            </div>
+            <div style="font-size: 19px" *ngIf="list.lastname == null">
+              <b>-</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Birthdate :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{list.birthDate}}</b>
+            </div>
+            <div style="font-size: 19px" *ngIf="list.birthDate == null">
+              <b>-</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Basic Salary :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{convert(list.basicSalary)}}</b>
+            </div>
+            <div style="font-size: 19px" *ngIf="list.basicSalary == null">
+              <b>-</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Status :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{list.status}}</b>
+            </div>
+            <div style="font-size: 19px" *ngIf="list.status == null">
+              <b>-</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Group :
+            </div>
+            <div style="font-size: 19px">
+              <b>{{list.group}}</b>
+            </div>
+            <div style="font-size: 19px" *ngIf="list.group == null">
+              <b>-</b>
+            </div>
+          </div>
+          <div style="margin-bottom: 15px">
+            <div style="color: #808080a8">
+              Description :
+            </div>
+            <div style="font-size: 19px" *ngIf="list.description == null || list.description == ''">
+              <b>-</b>
+            </div>
+            <div style="font-size: 19px">
+              <div [innerHtml]="list.description"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>

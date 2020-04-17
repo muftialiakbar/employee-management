@@ -3,20 +3,18 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-4 mx-md-auto paper-card">
-          <div class="text-center">
+          <div class="text-center" style="margin-bottom: 20px">
             <img src="assets/img/dummy/u4.png" alt="" />
-            <h3 class="mt-2">Welcome Back</h3>
-            <p class="p-t-b-20">Dashboard Statistic</p>
+            <h3 class="mt-2">Welcome</h3>
           </div>
           <form action="#" method="post" (submit)="doLogin()">
             <div class="form-group has-icon"><i class="icon-envelope-o"></i>
-              <input type="text" name="username" class="form-control form-control-lg" [(ngModel)]="dataLogin.email" placeholder="Email Address" required />
+              <input type="text" name="username" class="form-control form-control-lg" [(ngModel)]="dataLogin.username" placeholder="Email Address" required />
             </div>
             <div class="form-group has-icon"><i class="icon-user-secret"></i>
               <input type="password" name="password" class="form-control form-control-lg" [(ngModel)]="dataLogin.password" placeholder="Password" required />
             </div>
             <input type="submit" class="btn btn-primary btn-lg btn-block" value="Log In" />
-            <!--<p class="forget-pass">Forgot your password?</p>-->
           </form>
         </div>
       </div>

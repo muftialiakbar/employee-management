@@ -1,0 +1,68 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "username": "admin",
+      "firstname": "admin",
+      "lastname": null,
+      "email": "admin@darts.com",
+      "birthDate": "1998-05-03",
+      "basicSalary": "7000000",
+      "status": "karyawan",
+      "activated_at": "2020-03-04 00:00:00",
+      "group": "developer",
+      "description": "dia adalah seorang"
+    },
+    {
+      "id": 2,
+      "username": "test",
+      "firstname": "admin",
+      "lastname": null,
+      "email": "admin@darts.com",
+      "birthDate": "1998-05-03",
+      "basicSalary": "7000000",
+      "status": "karyawan",
+      "activated_at": "2020-03-04 00:00:00",
+      "group": "developer",
+      "description": "dia adalah seorang"
+    },
+    {
+      "id": 3,
+      "username": "akun admin",
+      "firstname": "admin",
+      "lastname": null,
+      "email": "admin@darts.com",
+      "birthDate": "1998-05-03",
+      "basicSalary": "7000000",
+      "status": "karyawan",
+      "activated_at": "2020-03-04 00:00:00",
+      "group": "developer",
+      "description": "dia adalah seorang"
+    },
+    {
+      "id": 4,
+      "username": "coba1",
+      "firstname": "admin",
+      "lastname": null,
+      "email": "admin@darts.com",
+      "birthDate": "1998-05-03",
+      "basicSalary": "7000000",
+      "status": "karyawan",
+      "activated_at": "2020-03-04 00:00:00",
+      "group": "developer",
+      "description": "dia adalah seorang"
+    },
+    {
+      "description": "<p>bdjskc</p>",
+      "username": "coba123",
+      "email": "demo@demo.com",
+      "firstname": "cndjskc",
+      "lastname": "djsald",
+      "status": "bdksbjk",
+      "basicSalary": 900000,
+      "group": "AKSI",
+      "birthdate": "2020-04-16",
+      "id": 5
+    }
+  ]
+}
